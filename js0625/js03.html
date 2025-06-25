@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //奇偶數判斷
+        var a=60;
+        
+        if( a%2===0){
+
+            console.log(a+"為偶數");
+        }else{
+            
+            console.log(a+"為奇數");
+        }
+        
+       //成績檢查(及格與不及格)
+
+       var b=-10;
+        if(b>=0 && b<=100)
+        {
+            if(b>=0 && b<=59){
+                console.log("這次"+b+"分不及格，再加油喔!");
+            }else{
+                console.log("這次"+b+"分~很棒喔!");
+            }
+        }else{
+            console.log("分數超過範圍!!!");
+        }
+        //成績檢查(分5層用switch)
+
+        let c=79;
+        switch(true){
+
+            case(c>=0 && c<=59):
+                console.log("你的分數不合格喔");
+                break;
+
+            case(c>=60 && c<=69):
+                console.log("你的分數介於60~69");
+                break;
+            case(c>=70 && c<=79):
+                console.log("你的分數介於70~79");
+                break;
+            case(c>=80 && c<=89):
+                console.log("你的分數介於80~80");
+                break;
+            case(c>=90 && c<=99):
+                console.log("你的分數介於90~99");
+                break;
+            default:
+                console.log("滿分耶!!!");
+        }
+            
+
+        //倍數檢查
+
+        let d=35;
+        
+        switch(true){
+
+            case(d%2==0):
+                console.log(d+"為2的倍數");
+                break;
+            
+            case(d%3==0):
+                console.log(d+"為3的倍數");
+                break;
+            case(d%5==0):
+                console.log(d+"為5的倍數");
+                break;
+            default:
+                console.log(d+"不為2.3.5的倍數");
+        }
+
+      
+        
+
+        
+    </script>
+
+</body>
+</html>

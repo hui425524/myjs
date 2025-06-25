@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test01</title>
+</head>
+
+<body>
+    <script>
+        //宣告兩個變數，存放資料並加總
+
+        var a = 1;
+        var b = 2;
+        var c = a + b;
+        console.log(a + "+" + b + "=" + c);
+        //改用樣板字串template string(字串字面值)
+        //使用反引號(``)，變數部分 ${變數名稱}
+        console.log(`${a}+${b}=${c}`);
+
+        //檢查(if)分數是否及格?
+        var score = 55;
+        console.log(score >= 60);
+        if (score >= 60) {
+            console.log("及格");
+        } else {
+            console.log("不及格");
+        }
+        //檢查(if)分數是否及格以及分數為多少?
+        var score = 90;
+        console.log(score >= 60);
+        if (score >= 60) {
+            console.log(`${score}分你及格了`);//寫法一
+        } else {
+            console.log(score + "分不及格");//寫法二
+
+        }
+
+
+    </script>
+</body>
+
+</html>
