@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //血型判斷A O B AB =>輸入視窗
+        
+
+        var blood="";//建立一個血型變數，給使用者存放
+        blood = prompt("請輸入您的血型:").toUpperCase();
+
+        //console.log(blood);
+        /*
+        if(blood == "A" || blood == "a"){
+            document.write("您的血型為A型");
+            console.log(blood);
+        }else if(blood == "B" || blood == "b"){
+            document.write("您的血型為B型");
+            console.log(blood);
+        }else if(blood == "O" || blood == "o"){
+            document.write("您的血型為O型");
+            console.log(blood);
+        }else if(blood == "AB" || blood == "ab"||blood == "Ab" || blood == "aB"){
+            document.write("您的血型為AB型");
+            console.log(blood);
+        }else{
+            document.write("請重新輸入!");
+            console.log(blood);
+        }
+        */
+        switch(blood){
+            case("A" || "a")://因已固定為大寫 所以這邊可寫 case "A":
+                document.write("您的血型為A型");
+                console.log(blood);
+                break;
+            case("B" || "b"):
+                document.write("您的血型為B型");
+                console.log(blood);
+                break;
+            case("AB" || "ab" || "Ab" || "aB"):
+                document.write("您的血型為AB型");
+                console.log(blood);
+                break;
+            case("O" || "o"):
+                document.write("您的血型為O型");
+                console.log(blood);
+                break;
+            default:
+                document.write("沒有這個血型喔!!!");
+                console.log(blood);
+                break;
+        }
+    </script>
+</body>
+</html>
