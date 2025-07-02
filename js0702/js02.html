@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        ////四捨五入 ${Math.round(x)}
+        
+        var w=8 ;//water
+        var p;//pay
+if(w>0 && w<=10){
+
+    p=7.35 * w;
+    console.log( `實際付的水費為 ${Math.round(p)}`);
+}else if(w>10 && w<=30){
+
+    p=9.45 * w;
+    console.log(`實際付的水費為 ${Math.round(p)}`);
+
+}else if(w>30 && w<=50){
+
+    p=11.55 * w;
+    console.log( `實際付的水費為 ${Math.round(p)}`);
+
+}else if(w>50){
+
+    p=12.075 * w;
+    console.log( `實際付的水費為 ${Math.round(p)}`);
+
+}else{
+
+    console.log("無法計算，度數有誤");
+}
+        
+
+
+    </script>
+</body>
+</html>

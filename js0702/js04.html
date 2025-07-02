@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ticType=1;//票價種類(1-3)
+        var ticName="";//種類名稱
+        var ticNum =2;//張數
+        var p=0;//price
+        var errFlag = "N";//存放是否錯誤(識別變數)
+
+        switch(ticType)
+        {
+            default:
+                 console.log("Err");
+                 errFlag = "Y";
+                break;
+
+            case 1:
+                p=500;
+                ticName="全票";
+                break;
+
+            case 2:
+                p=500*0.8;
+                ticName="優待票";
+                break;
+
+            case 3:
+                p=500*0.8*0.7;
+                ticName="敬老票";
+                break;
+
+           
+        }
+        console.log(`票價種類: ${ticName},${ticNum}張,票價為${p*ticNum}`);
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

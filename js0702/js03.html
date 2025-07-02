@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //一開始要先擋掉無效範圍才能進入成績等級計算
+        ///防止錯誤的行為要先做!!!!!
+        var strLevel="";
+        var s = -82;//score ;
+
+    if(s<0 || s>100){
+
+        console.log('請輸入有效數字範圍');
+    }else{
+
+        if(s>0 && s<=59){
+            
+            strLevel="丁";
+            //console.log('分數:'+s+'分,成績等級為 等');
+        }
+        else if(s>=60 && s<=69){
+                strLevel="丙";
+                //console.log('分數:'+s+'分,成績等級為 等');
+
+        }else if(s>=70 && s<=79){
+                strLevel="乙";
+                //console.log('分數:'+s+'分,成績等級為 等');
+
+        }else {
+                strLevel="甲";
+                //console.log('分數:'+s+'分,成績等級為 等');
+
+        }
+
+
+    console.log(`分數:${s}分,成績等級為${strLevel}等'`);
+
+    }
+
+    
+
+    </script>
+</body>
+</html>
