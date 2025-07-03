@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var s=0;
+    var endvalue=0;
+
+    for(var i=100;i>=1;i--){//從100開始到1 遞減 找到最後一個值
+
+           if(i%3==0 && i%5==0){
+
+                endvalue = i;
+                break;
+            }
+    }
+
+        for(var i=1;i<=100;i++){
+
+            if(i%3==0 && i%5==0){
+
+                j=i;
+                console.log(`第三題 `+j+ ",");
+                document.write(j);
+                s+=j;
+                //如果是我們剛剛找到的最大值，那後面接=其餘接，
+                if(endvalue==i){
+
+                   document.write("="); 
+                }else{
+                    document.write("+");
+                }
+            }
+        }      
+        document.write(s);
+        document.write("<hr>");
+
+        ////第2種方式
+
+    </script>
+      
+</body>
+</html>

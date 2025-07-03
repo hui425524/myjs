@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+//第一題:1-100奇數和
+       
+        var j;
+        var s = 0;
+
+        for (var i = 1; i <= 100; i++) {
+
+            if (i % 2 == 1) {
+
+                /*j = i;
+                console.log(j+ ",");
+                s += j;*/
+                s+=i;
+         
+            }
+        }
+        document.write(`第一題總和:`+s);
+        document.write("<br>");
+
+    ///第一題，寫法二:
+s=0;
+        for(var i=1;i <= 100; i=i+2){
+            s+=i;
+        }
+document.write(`第2種寫法總和=${s}`+"<br>"+"<hr>");
+
+//第二題:100-1偶數和
+        s=0;
+        for(var i=100;i>=1;i--){
+
+            if(i%2 ==0){
+                j=i;
+                console.log(i + ",");
+                s+=j;
+            }
+        }
+        document.write(`第二題總和: `+s);
+        document.write("<br>");
+        //第二題，寫法二
+s=0;
+for(var i=100;i>=2;i=i-2){
+    s+=i;
+}
+document.write(`第2種寫法總和=${s}`+"<br>"+"<hr>");
+
+//3&5的倍數加總
+        s=0;
+        for(var i=1;i<=100;i++){
+
+            if(i%3==0 && i%5==0){
+
+                // j=i;
+                // console.log(`第三題 `+j+ ",");
+                // document.write(j+"+");
+                // s+=j;
+                s+=i;
+            }
+        }
+        //j=j.slice(0,-1);
+        document.write("="+s);
+        document.write("<hr>");
+
+     //第二題，寫法二
+
+
+    </script>
+
+</body>
+
+</html>
