@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>加總</title>
 </head>
+
 <body>
 
-    <label for="">數值1</label>
-    <input type="number"id="n1">
+    <label for="n1">數值1</label>
+    <input type="number" id="n1">
+    <!-- class的值可重複，id不可以 -->
     <br>
-    <label for="">數值2</label>
-    <input type="number"id="n2">
-    <button onclick="tot()">看結果</button>
+    <button onclick="tot()">+</button><br>
+    <label for="n2">數值2</label>
+    <input type="number" id="n2">
+    
 
     <p id="result">加總結果</p>
 
     <script>
-        var s=0;
+        var s = 0;
 
-        function tot(){
+        function tot() {
 
-           var n1= document.getElementById("n1").value;
-           console.log(n1.value);
-            var n2= document.getElementById("n2").value;
+            // console.log("n1轉換前=>"+typeof n1.value);//查看型別
+            // //字串轉數值 parseInt(字串名稱)
+            // console.log("n1轉換後=>"+typeof parseInt(n1.value));
+            // //數字轉字串 數值名稱.toString()
+            // var strNum = 123;
+            // console.log("n1數字轉字串=>"+typeof strNum.toString());
+            
+            
+            
+            var n1 = document.getElementById("n1");//.value
+            console.log(n1.value);
+            var n2 = document.getElementById("n2");//.value
             console.log(n2.value);
-            s=n1+"+"+n2;
-//取得數值內容並顯示在指定位置
+            //s = n1 + n2;
+            //取得數值內容並顯示在指定位置
 
-            document.getElementById("result").textContent=s;//n1+"+"+n2;
+
+    
+            document.getElementById("result").textContent = parseInt(n1.value) +  parseInt(n2.value);
 
             
             // window.alert(s);
@@ -37,6 +52,7 @@
         }
 
     </script>
-    
+
 </body>
+
 </html>
