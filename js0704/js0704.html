@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="result">請重整</p>
+    <script>
+        var sum = 0;
+        var fail = 0;
+        var pass = 0;
+        var avg=0;
+        var result = document.getElementById("result");
+
+        //var n = document.getElementById("n");//.value
+
+        while (1) {
+
+            var score = prompt("請輸入成績");
+
+            //檢查是否取消
+            if (score == null) {
+                //把變數放在這裡是因為 若成績輸入到一半且按了取消，會跳回?
+                var sum = 0;
+                var fail = 0;
+                var pass = 0;
+                var avg=0;
+
+                alert("您按了取消，即將結束輸入");
+                continue;//回到一開始的狀態
+            }
+            //去除資料前後的空白=>trim()；因為是字串的型別所以可以直接加
+            if (score.trim() == "") {
+                alert("就說了不可以空白，請重新輸入");
+                continue;
+            }
+            //檢查是否空白；但多個空白的話，需要用trim的方式
+            // if(score == ""){
+            //     alert("不可以空白，請重新輸入");
+            //     continue;
+            // }
+
+            ///有資料，字串轉數字
+            score = Number(score);
+            //檢查是否為-1(題目為-1時結束)
+            if (score == -1) {
+                 alert("成績輸入結束");
+                 break;
+
+            }
+
+            //檢查是否為數字
+            if (isNaN(score)) {
+                alert("非數字，請重新輸入");
+                continue;
+            } else if(score <0 || score > 100){
+
+                alert("超過有效範圍，請重新輸入數字1-100");
+                continue;
+            }
+
+            //檢查是否及格
+            if(score >=60){
+                pass++;
+            }else{
+                fail++;
+            }
+
+            //總分
+
+            sum +=score;
+        }
+//平均
+if(pass+fail>0){//如果沒有加
+    avg=sum/(pass+fail);
+}
+        
+///result.textContent :會把所有內容顯示出來包含<br>
+        result.innerHTML=`
+        
+        及格人數:${pass}人 <br>
+        不及格人數:${fail}人<br>
+        總分:${sum}分<br>
+        平均:${avg.toFixed(2)}分
+             90
+        `;
+
+    </script>
+
+
+</body>
+
+</html>

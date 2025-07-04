@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>還沒寫好</title>
+</head>
+
+<body>
+
+    <p id="result">請重整網頁</p>
+
+    <script>
+        var sum = 0;
+        var fail = 0;
+        var pass=0;
+        var avg=0;
+        //var score=0;
+        
+        console.log(typeof score);
+        var result = document.getElementById("result");
+
+
+        
+
+
+        // do {
+
+        //     var score = parseInt(prompt("請輸入成績..."));
+            
+        //     if (score == null) {//不管有沒有資料 按取消就會null
+        //         break;
+        //     } else if (score == "") {
+        //         alert("成績不能為空");
+        //         continue;//忽略以下的，回到一開始
+        //     } else if (score < -2 || score > 100) {
+
+        //         alert("輸入的分數範圍錯誤");
+        //         continue;
+
+        //     } else if (isNaN(Number(score))) {//檢查是不是NaN --特殊寫法=>isNaN
+        //         //透過Number(值)，若為數字=正常；其餘皆為NaN
+        //         alert("非數值，請重新輸入");
+        //         continue;
+        //     } 
+            
+        //         if (score >= 60) {
+        //             pass++;                    
+        //         } else {
+        //             fail++;                   
+        //         }
+
+        //     sum+=score;
+        //     count++;
+
+        // } 
+        
+        while (1) {
+
+
+            var score = prompt("請輸入成績");
+            
+
+            //先看是否為null
+            if(score == null){
+
+                    // var sum = 0;
+                    // var fail = 0;
+                    // var pass=0;
+                    // var avg=0;
+
+                alert("按了取消，即將結束");
+                break;
+            }
+            if(score.trim == ""){
+
+                alert("成績不可為空值");
+                continue;
+            }
+            //score=Number(score);
+
+            //檢查資料是否為數字
+
+            if (isNaN(Number(score))) {//檢查是不是NaN --特殊寫法=>isNaN
+                //透過Number(值)，若為數字=正常；其餘皆為NaN
+                alert("非數值，請重新輸入");
+                continue;
+            }
+
+
+
+
+
+
+            //alert("結束登入成績");
+
+            //document.getElementById("result");
+           
+
+
+
+            
+        }
+            //document.getElementById("pass").textContent = `及格人數: ${pass}`;
+
+
+
+        
+
+
+    </script>
+</body>
+
+</html>

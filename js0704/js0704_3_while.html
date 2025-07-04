@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>while</h2>
+    <script>
+        //while先檢查是否可以執行迴圈的條件
+        //需要先在外面宣告
+
+        var s = 0;
+        var num = 1;
+        while (num <= 5) {
+
+            s = s + num;
+            num++;
+
+        }
+        document.write(`1+2+3+4+5=${s}`);
+
+    </script>
+    <h2>for</h2>
+    <script>
+        s = 0;
+        for (var i = 1; i <= 5; i++) {
+            s += i;
+        }
+        document.write(`1+2+3+4+5=${s}`);
+
+    </script>
+    <h2>do-while</h2>
+    <script>
+        //讓使用者可以重複輸入
+        var s1 = 0;
+        num = 0;
+
+        do {
+
+            s1 += num;
+            num++;
+
+        } while (num <= 5);
+        document.write(`1+2+3+4+5=${s}`);
+
+    </script>
+    <h2>循環輸入</h2>
+    <script>
+        do {
+            var month = prompt("請輸入月份...");
+            //alert(month);
+            if (month == null) {//不管有沒有資料 按取消就會null
+                break;
+            } else if (month == "") {
+                alert("月份不能空白");
+                continue;//忽略以下的，回到一開始
+            }else if(month<1 || month>12){
+
+                 alert("輸入的月份範圍錯誤");
+                 continue;
+
+            }else if(isNaN(Number(month))){//檢查是不是NaN --特殊寫法=>isNaN
+                //透過Number(值)，若為數字=正常；其餘皆為NaN
+                 alert("非數值，請重新輸入");
+                continue;
+            }
+
+
+
+            alert("您輸入的月份為:" + month);
+        } while (1);
+        //true=1
+        //
+        
+
+    </script>
+
+
+
+</body>
+
+</html>

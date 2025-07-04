@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //取亂數(0-1)之間
+        //var rd=Math.random()*2;//回傳0.1
+        //var rd=Math.random()*3;//回傳0.1.2
+        
+        //去除亂數的小數(無條件捨去)
+        //console.log(Math.floor(rd));
+
+        var rd=Math.random()*100;
+        console.log(rd);
+        //去除小數後加1
+        console.log(Math.floor(rd)+1);
+
+        var score = prompt("請輸入數字(1-100)");
+
+
+do{
+//按取消時
+    if(score==null){
+        alert("您按了取消，請重新輸入!");
+        continue;
+    }
+
+
+//輸入了空值
+
+    if(trim.score==""){
+
+        alert("不可為空，請重新輸入!");
+        continue;
+    }
+//有輸入東西但不確定是否為數字，所以先轉換成數字
+score=Number(score);
+
+//檢查是否為數值，且數字是否為1-100
+    if(isNaN (score)){
+
+        alert("非數值，請重新輸入!");
+
+    }else if(score>0 || score <= 100){
+
+         alert("請輸入數值1-100的數值!");
+    }
+
+//
+    switch(score){
+
+        case(score > rd):
+
+
+    }
+
+//檢查數字大小與範圍
+        
+    
+    if(score > rd){
+            alert("數字太大了");
+        }else{
+
+            alert("數字太小了");
+        }
+
+    }while(i<=3){
+
+        alert("猜錯了，遊戲失敗");
+
+    }
+
+
+    if(rd>=50 < rd<=60){
+
+    }
+
+
+    </script>
+    
+</body>
+</html>
