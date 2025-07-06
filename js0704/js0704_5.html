@@ -38,7 +38,7 @@
 
         do {
             //按取消時
-            var score = prompt("請輸入數字(1-100)");
+            var score = prompt(`請輸入數字 ${min}~${max}`);
 
             if (score == null) {
                 alert("您按了取消，請重新輸入!");
@@ -64,7 +64,7 @@
 
             } else if (score <= min || score >= max) {
 
-                alert("超過有效範圍 請輸入數值1-100的數值!");
+                alert("超過有效範圍 請輸入有效數值!");
                 continue;
             }
 
