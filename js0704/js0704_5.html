@@ -1,87 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        
+
         //取亂數(0-1)之間
         //var rd=Math.random()*2;//回傳0.1
         //var rd=Math.random()*3;//回傳0.1.2
-        
+
         //去除亂數的小數(無條件捨去)
         //console.log(Math.floor(rd));
-
-        var rd=Math.random()*100;
-        console.log(rd);
         //去除小數後加1
-        console.log(Math.floor(rd)+1);
-
-        var score = prompt("請輸入數字(1-100)");
-
-
-do{
-//按取消時
-    if(score==null){
-        alert("您按了取消，請重新輸入!");
-        continue;
-    }
-
-
-//輸入了空值
-
-    if(trim.score==""){
-
-        alert("不可為空，請重新輸入!");
-        continue;
-    }
-//有輸入東西但不確定是否為數字，所以先轉換成數字
-score=Number(score);
-
-//檢查是否為數值，且數字是否為1-100
-    if(isNaN (score)){
-
-        alert("非數值，請重新輸入!");
-
-    }else if(score>0 || score <= 100){
-
-         alert("請輸入數值1-100的數值!");
-    }
-
-//
-    switch(score){
-
-        case(score > rd):
-
-
-    }
-
-//檢查數字大小與範圍
+        // (Math.floor(rd) + 1);
+        var count = 1;
+        var min = 1;
+        var max = 100;
+        var ans;
         
-    
-    if(score > rd){
-            alert("數字太大了");
-        }else{
+        ans=Math.floor(Math.random()*(max-min-1))+min;
+        console.log(ans);
 
-            alert("數字太小了");
-        }
-
-    }while(i<=3){
-
-        alert("猜錯了，遊戲失敗");
-
-    }
+        // var rd = Math.random() * 100;
+        // //去除小數後加1
+        // ans=(Math.floor(rd) + 1);
+        // console.log(ans);
+        //rd=(Math.floor(rd) + 1);
+        //去除小數後加1
+        //var ans = console.log(Math.floor(rd) + 1);
+        
 
 
-    if(rd>=50 < rd<=60){
+        do {
+            //按取消時
+            var score = prompt("請輸入數字(1-100)");
 
-    }
+            if (score == null) {
+                alert("您按了取消，請重新輸入!");
+                continue;
+            }
 
+
+            //輸入了空值
+
+            if (score.trim()== "") {
+
+                alert("不可為空，請重新輸入!");
+                continue;
+            }
+            //有輸入東西但不確定是否為數字，所以先轉換成數字
+            score = Number(score);
+
+            //檢查是否為數值，且數字是否為1-100
+            if (isNaN(score)) {
+
+                alert("非數值，請重新輸入!");
+                continue;
+
+            } else if (score <= min || score >= max) {
+
+                alert("超過有效範圍 請輸入數值1-100的數值!");
+                continue;
+            }
+
+
+            //檢查數字大小與提示範圍
+
+
+            if (score > ans) {//60>50 =>(1~60)
+                alert(`第${count}次:${score}，數字太大了，提示:${min}-${score}`);
+                max = score;
+                count++;
+            } else if (score < ans) {//ans>score 60>50=>(50~60)
+
+                alert(`第${count}次:${score}，數字太小了，提示:${score}-${max}`);
+                min = score;
+                count++;
+            }
+            
+            if(score == ans){
+
+                alert(`第${count}次:${score}是答案!!!`);
+                count++;
+
+            }
+
+            
+        }while(score !== ans);
 
     </script>
-    
+
 </body>
+
 </html>
