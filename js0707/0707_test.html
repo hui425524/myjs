@@ -11,7 +11,7 @@
 
     <script>
         //1:找出不是數值=>isNaN無法使用 因為"12345"會被認為是非數字
-        //2:
+        //2:找出字串
         let arr1 = [1, 2, "a", 4, 5, "12345"];
 
         for (let i = 0; i < arr1.length; i++) {
@@ -33,6 +33,17 @@
 
             if (typeof arr1[n] === "string") {
                 console.log("字串有:" + arr1[n]);
+            }
+
+        });
+
+        /////////////////老師的方法
+
+        //map
+        arr1.map((n)=>{
+            if(typeof n === "string"){
+
+                console.log(n);
             }
 
         });
