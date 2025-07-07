@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在JS裡面，陣列是物件</title>
+</head>
+<!-- <div id="area">請輸入數字範圍:
+
+    <input type="number"id="min">
+    <input type="number"id="max">
+    <button onclick="btnArea()">確認數字範圍</button>
+    
+</div>
+
+<p id="result">結果</p> -->
+
+<body>
+
+    <h2>陣列常用法</h2>
+
+    <script>
+
+        //使用迴圈，顯示陣列中的內容
+
+        let arr1 = [1,30,25];
+        console.log("排序前:"+arr1);
+        //遞增排序
+        //箭頭函式寫法(可以直接回傳)
+        arr1.sort((a,b)=>{
+            //遞增
+            return a-b;
+            //遞減
+            //return b-a;
+        });
+
+        console.log("遞增排序後=>>>>"+arr1);
+
+          arr1.sort((a,b)=>{
+            
+            //遞減
+            return b-a;
+        });
+         console.log("遞減排序後=>>>>"+arr1);
+
+
+
+        // for (let i = 0; i < arr1.length; i++) {
+
+        //     console.log(arr1[i]);
+        // }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>終極密碼老師講解</title>
+</head>
+
+<body>
+    <h2>猜數字解答_彈跳視窗</h2>
+    <p id="result">開始</p>
+    <script>
+        var min=1;
+        var max=100;
+        var count=0;
+        let strMsg="";//存放每次執行後的訊息
+        
+
+        let rd = Math.floor(Math.random() * 100) + 1;
+
+        while (1) {
+            count++;
+
+            let guess = prompt(`請輸入${min}-${max}的數值`);
+
+            if (guess == null) {
+
+                alert("您按了取消，即將結束");
+                break;
+
+            }
+            if(guess.trim()==""){
+
+                alert("不能空白");
+                continue;
+            }
+
+            guess=parseInt(guess);
+            if(isNaN(guess)){
+
+                alert("請輸入數字!");
+                continue;
+            }
+            if(guess<=0 || guess>100){
+
+                alert(`請輸入${min}-${max}`);
+                continue;
+            }
+
+            if (guess == rd) {
+
+                alert(`第${count}次，答對了!!!`);
+                strMsg=strMsg+`第${count}次，答對了~~~<br>`;
+
+                break;
+            }
+
+            if(guess>rd){
+
+                max=guess;
+                alert(`第${count}次，太大了，提示${min}-${max}`);
+                strMsg=strMsg+`第${count}次，太大了，提示${min}-${max}<br>`;
+
+            }else{
+                min=guess;
+                alert(`第${count}次，太小了，提示${min}-${max}`);
+                strMsg=strMsg+`第${count}次，太小了，提示${min}-${max}<br>`;
+
+
+            }
+        }
+        //document.write(strMsg);
+
+        //取代文字
+        let result=document.getElementById("result").innerHTML=strMsg;
+
+
+    </script>
+
+</body>
+
+</html>

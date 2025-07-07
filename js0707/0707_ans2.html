@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>猜數字解答__表單版本</h2>
+    <!-- 遊戲區 -->
+    <div id="game" style="display:block">請輸入數字:
+        <input type="number" id="guess">
+        <button onclick="btnClick()">確定</button>
+    </div>
+
+   
+    <!-- 顯示區 -->
+    <p id="result"></p>
+    <button id="btn2" onclick="btnReset()" style="display:none;">再玩一次</button>
+
+
+    <script>
+        let game = document.getElementById("game");       
+        let btn2 = document.getElementById("btn2");//再玩一次
+        let result = document.getElementById("result");//取得顯示位置
+
+        let rd = Math.floor(Math.random() * 100) + 1;
+        console.log(rd);
+        let max = 100;
+        let min = 1;
+        let count = 0;
+        let guess = "";
+
+        function btnClick() {
+            count++;
+            guess = document.getElementById("guess");
+
+            //雖然一開始就是數字，但進來後會是字串，需要再轉一次
+
+            let keyNum = parseInt(guess.value);
+            //檢查是否為空
+
+            if (isNaN(keyNum)) {
+                alert("不能為空");
+                guess.focus();
+                return;
+            }
+            //檢查是否結束遊戲//沒做
+         
+
+            if (keyNum === rd) {
+                result.innerHTML += `第${count}次，Bingo`;
+                //隱藏遊戲區
+                game.style.display = "none";//none一個值所以要用字串包起來
+                btn2.style.display = "block";//顯示再玩一次
+
+                return;//猜對就結束函示 //break只能用在switch還有函示
+            }
+            if (keyNum > rd) {
+                max = keyNum;
+                result.innerHTML += `第${count}次，太小了，提示:${min}-${max}<br>`;
+            } else {
+                min = keyNum;
+                result.innerHTML += `第${count}次，太大囉，提示:${min}-${max}<br>`;
+
+            }
+            //清除文字方塊內容
+            guess.value = "";
+            //指定游標移到文字方塊上
+            guess.focus();
+        }
+        ///再玩一次按鈕
+        function btnReset() {
+
+            //清除歷史紀錄
+            guess.value = "";
+            result.innerHTML = "";
+            min = 1;
+            max = 100;
+            count = 0;
+            //重新取亂數
+            rd = Math.floor(Math.random() * 100) + 1;
+            console.log(rd);
+            //顯示遊戲區
+            game.style.display = "block";
+
+            //再次隱藏起來
+            btn2.style.display = "none";
+
+
+
+        }
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

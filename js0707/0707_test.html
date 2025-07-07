@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //1:找出不是數值=>isNaN無法使用 因為"12345"會被認為是非數字
+        //2:
+        let arr1 = [1, 2, "a", 4, 5, "12345"];
+
+        for (let i = 0; i < arr1.length; i++) {
+            //console.log(typeof arr1[i]);
+
+            if (typeof arr1[i] === "string") {
+                console.log("字串有:" + arr1[i]);
+            }
+        }
+        console.log("---------------方法二-----------:for...of");
+        for (let n of arr1) {
+
+            if (typeof arr1[n] === "string") {
+                console.log("字串有:" + arr1[n]);
+            }
+        }
+        console.log("----------------方法三:forEach");
+        arr1.forEach((n) => {
+
+            if (typeof arr1[n] === "string") {
+                console.log("字串有:" + arr1[n]);
+            }
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

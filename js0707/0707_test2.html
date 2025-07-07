@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        arr1=[5,60,3,90,33,1,100];
+console.log("方法一:for");
+         for(let i=0;i<arr1.length-1;i++){
+            for(let j=0;j<arr1.length-1-i;j++){
+
+                if(arr1[j]>arr1[j+1]){
+
+                    let temp = arr1[j];
+                    arr1[j]=arr1[j+1];
+                    arr1[j+1]=temp
+
+                }
+
+            }
+        }
+            let min1=arr1[0];
+            console.log(`最小值:${min1}`);
+            let max1=arr1[arr1.length-1];
+            console.log(`最大值:${max1}`);                                     
+        
+///方法二for of
+        console.log("------------方法二-----------:for...of");
+        for(let n of arr1){
+            //console.log(n);                       
+        }
+         let min2=arr1[0];
+            console.log(`最小值:${min2}`);
+            let max2=arr1[arr1.length-1];
+            console.log(`最大值:${max2}`); 
+///方法三forEach 
+    console.log("-------------方法三:forEach");
+         arr1.forEach((n)=>{
+             //console.log(n);
+        })
+        let min3=arr1[0];
+            console.log(`最小值:${min3}`);
+            let max3=arr1[arr1.length-1];
+            console.log(`最大值:${max3}`);
+
+
+    </script>
+    
+</body>
+</html>
