@@ -10,7 +10,7 @@
 <body>
 
     <script>
-        //1:找出不是數值=>isNaN無法使用 因為"12345"會被認為是非數字
+        //1:找出不是數值=>isNaN無法使用 因為"12345"會被認為是非數字(除非先轉換為Number("12345"))
         //2:找出字串
         let arr1 = [1, 2, "a", 4, 5, "12345"];
 
@@ -38,15 +38,28 @@
         });
 
         /////////////////老師的方法
-
+        console.log("----------------方法四:map");
         //map
-        arr1.map((n)=>{
-            if(typeof n === "string"){
+        arr1.map((n) => {
+            if (typeof n === "string") {
 
                 console.log(n);
             }
 
         });
+
+         console.log("----------------方法四:map");
+        for (let i = 0; i < arr1.length; i++) {
+            //console.log(typeof arr1[i]);
+
+            if (isNaN(Number(arr1[i]))) {
+
+                console.log("字串有:" + arr1[i]);
+
+
+            }
+
+        };
 
 
     </script>

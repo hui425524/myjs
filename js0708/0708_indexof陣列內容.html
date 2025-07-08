@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = ['html', 'css', 'js', 'figma', 'ui'];
+
+        ///需修改
+
+        // for(n of arr1){
+
+        //     if(arr1[n]=='css'){
+        //         alert(`找到了，在第${arr1[n]}個位置`);
+        //         break;
+        //     }
+        // };
+
+        ///需修改
+
+        console.log("第一種方法 : for迴圈用");
+        
+        //     for(let i=0;i<arr1.length;i++){
+
+        //         if(arr1[i]==='css'){
+        //             alert(`找到了，在第${i+1}個位置`);//對使用者來說需+1 (因陣列從0開始)
+        //             break;
+        //     }
+        // }
+
+        console.log("第二種方法 : indexOf(item,從第幾個)");//找到會回傳，找不到回-1
+
+
+        if(arr1.indexOf("css")===-1){
+            alert("不存在");
+
+        }else{
+
+            alert(`找到了在第${arr1.indexOf("css")+1}`);
+        }
+
+        //
+        // let searchIndex=arr1.indexOf("css");
+
+        // if(searchIndex !== -1){
+
+        //     alert(`找到了在第${searchIndex+1}`);
+
+
+        // }
+
+        console.log("第三種方法 : includes(item,從第幾個)");//找到會回傳ture，找不到回false
+
+        let find = arr1.includes("css");
+
+        // if(find){
+
+        //     console.log("找到了");
+        // }else{
+        //     console.log("不存在");
+        // }
+
+        //簡化成三元運算子((適用於單層的if.else))=> (條件式)？條件成立：條件不成立
+
+        (find) ? console.log("找到了") : console.log("不存在");
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

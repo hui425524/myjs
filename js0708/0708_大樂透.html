@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>一券在手，希望無窮</h1>
+    <button onclick="btnClick()">威力</button>
+    <button onclick="btnClick2()">大樂透</button>
+    <button onclick="btnClick3()">金彩</button>
+
+    <p id="result">自動選號區:<br></p>
+
+    <!-- 1.未排序的號碼 2.亂數後需做遞增排序 -->
+    <script>
+
+        //let j =Math.floor(Math.random()*38+1);//陣列從0開始所以+1
+
+        //1-先把需要的數字範圍放進一個空陣列
+        //2-洗牌
+        //3-取出6個數
+        //4-遞增排序
+
+        let num = [];
+        let snum = [];
+        let result = document.getElementById("result");//取得顯示位置
+
+        function btnClick() {
+
+            for (let i = 1; i <= 38; i++) {
+                num.push(i);
+            }
+            //console.log(num);
+
+            for (let i = num.length; i > 0; i--) {
+
+                let j = Math.floor(Math.random() * (i + 1));
+                [num[i], num[j]] = [num[j], num[i]];
+            }
+
+            console.log(num.slice(0,6));
+            //用push放進新的陣列再去排序
+
+            snum.push(num.slice(0, 6));
+            console.log(snum);
+
+            // snum.sort((a,b)=>a-b)
+            // console.log("遞減排序後=>>>>"+ snum);
+
+
+            snum.sort((a, b) => {
+
+                //遞減
+                return a - b;
+            });
+            console.log("遞減排序後=>>>>" + snum);
+
+            console.log("威力採第二區----------------");
+            let n = Math.floor(Math.random() * 8 + 1);//陣列從0開始所以+1
+            console.log("特別區 : " + n)
+
+            result.innerHTML += `威力採未排序時: ${snum}<br>威力採第二區-----${n}<br>`;
+
+
+
+        }
+
+
+
+        //    arr1.sort((a,b)=>{
+
+        //         //遞減
+        //         return b-a;
+        //     });
+        //      console.log("遞減排序後=>>>>"+arr1);
+
+
+        //使用PUSH
+        // console.log("方法二 : PUSH");
+        // arr1.push("123");
+        // console.log(arr1);
+
+
+
+
+        ///////////////////////
+        function btnClick2() {
+
+            let num1 = [];
+            let snum1 = [];
+            let result1 = document.getElementById("result1");//取得顯示位置
+
+            //function btnClick(){
+
+            for (let i = 1; i <= 49; i++) {
+                num1.push(i);
+            }
+            //console.log(num1);
+
+            for (let i = num1.length; i > 0; i--) {
+
+                let j = Math.floor(Math.random() * (i + 1));
+                [num1[i], num1[j]] = [num1[j], num1[i]];
+            }
+
+            //console.log(num1.slice(0,6));
+
+            //用push放進新的陣列再去排序
+            snum1.push(num1.slice(0, 6));
+            console.log(snum1);
+
+            // snum1.sort((a,b)=>a-b)
+            // console.log("遞減排序後=>>>>"+ snum1);
+
+
+            snum1.sort((a, b) => {
+
+                //遞減
+                return a - b;
+            });
+            console.log("遞減排序後=>>>>" + snum1);
+
+            console.log("大樂透第二區----------------");
+            let n1 = Math.floor(Math.random() * 49 + 1);//陣列從0開始所以+1
+
+
+            console.log("特別區 : " + n1)
+
+            result.innerHTML += `大樂透未排序時: ${snum1}<br>大樂透第二區---${n1}<br>`;
+
+        }
+
+
+        // console.log("3");
+
+        //         let arr3 = arr1.filter((n) => {
+        //             if (n % 2 !== 0) {
+        //                 return true;
+        //             }
+        //         })
+        //         console.log(arr3);
+
+
+        //  let nn=n1.filter((n)=>{
+        //  })
+
+
+        ////////////////////////////////////
+
+
+        function btnClick3() {
+
+            let num2 = [];
+            let snum2 = [];
+            let result2 = document.getElementById("result2");//取得顯示位置
+
+            //function btnClick(){
+
+            for (let i = 1; i <= 49; i++) {
+                num2.push(i);
+            }
+            //console.log(num2);
+
+            for (let i = num2.length; i > 0; i--) {
+
+                let j = Math.floor(Math.random() * (i + 1));
+                [num2[i], num2[j]] = [num2[j], num2[i]];
+            }
+
+            //console.log(num2.slice(0,6));
+
+            //用push放進新的陣列再去排序
+            snum2.push(num2.slice(0, 5));
+            console.log(snum2);
+
+            snum2.sort((a, b) => a - b)
+            console.log("遞減排序後=>>>>" + snum2);
+
+
+
+            // snum2.sort((a,b)=>{
+
+            //     //遞減
+            //     return a-b;
+            // });
+            //  console.log("遞減排序後=>>>>"+snum2);
+
+
+            result.innerHTML += `今彩未排序時: ${snum2}<br>`;
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
