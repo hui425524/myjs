@@ -6,7 +6,7 @@ let sortAfter = document.getElementById("sortAfter");
 let secNo = document.getElementById("secNo");
 
 
-//威力採用for
+//------------------------威力採用for
 function lott1() {
 
     //建立存放號碼的空陣列
