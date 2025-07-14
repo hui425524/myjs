@@ -1,4 +1,27 @@
 @charset "UTF-8";
+
+/* CSS  */
+:root{
+
+/* 灰階 */
+    --deep:#444;
+    --dark:#666;
+    --grey:#999;
+    --light:#f1f1f1;
+
+/* 背景  */
+--bg-1:#f2edf0;
+--bg-2:#e6ece5;
+--bg-3:#ecf0f4;
+
+/* 輔助 */
+--lesser-1:#f3e4e4;
+--lesser-2:#efdbdb;
+--lesser-3:#cdaaab;
+--lesser-4:#8f6d6e;
+
+
+}
 *{
     box-sizing: border-box;/* alt+shift+A */
     /*不累加內距與邊距  */
@@ -69,7 +92,9 @@ text-decoration: none;
 }
 /* 要不要給階層(空1格)是考量，在其他地方會不會不一樣 */
 /* svg會自動等比縮放 (寬度fill，高auto)*/
-.icon-fb{ background-image: url(../images/icon-fb.svg);}
+.icon-fb{ background-image: url(../images/icon-fb.svg);
+   /*  background-size: 100% ; 若檔名不是svg才須寫這行*/
+}
 .icon-ig{background-image: url(../images/icon-ig.svg);}
 .icon-line{background-image: url(../images/icon-line.svg);}
 
@@ -92,6 +117,13 @@ text-decoration: none;
 /* 滑上去變色 */
    color: blueviolet;
    border-bottom: #000 3px solid;
+}
+/* 聯繫我們區 */
+#contact{
+    /* 跟視窗一樣高? */
+    height: 100vh;
+    background-color: var(--bg-1);
+
 }
 
 /* .menu{
