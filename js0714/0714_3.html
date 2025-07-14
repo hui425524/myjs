@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="name">請輸入姓名:</label> 
+    <input type="text" id="name">
+    <button onclick="sayHi3(getName())">確定</button> 
+    <p id="show"></p>
+
+    <script>
+        //////方法一/////////////無參數，無回傳值
+        //1.先取得文字方塊內容 2.再取得顯示段落
+        // function sayHi1(){
+        //     let name1 = document.getElementById("name").value;
+
+        //     let show1= document.getElementById("show");
+
+        //     show1.innerHTML=`Hi,${name1}`;
+            
+        // }
+
+       
+
+        /////方法二//////////////有參數，無回傳值
+        
+        function sayHi3(uName){
+       
+
+            let show3=document.getElementById("show");
+
+            show3.innerHTML=`Hi,<br>${uName}`
+
+        }
+        function getName(){//先取得姓名
+
+            let name3=document.getElementById("name").value;
+            return name3;
+        }
+
+///////////無參數，有回傳值////此範例不適合
+        // function sayHi2(){
+        //     let name2 = document.getElementById("name").value;
+        //    let show2= document.getElementById("show");
+        //     show2.innerHTML=`Hi,${name1}`;
+        //     return name2;   
+        // }
+
+/////////////有參數，有回傳值////此範例不適合
+        // function sayHi4(uName){
+        //     let name4=document.getElementById("name").value;
+        //     let show4=document.getElementById("show");
+        // }
+
+
+
+
+
+    </script>
+
+    
+</body>
+</html>

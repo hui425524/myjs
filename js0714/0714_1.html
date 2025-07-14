@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    請輸入姓名:<input type="text" id="name">
+    <button onclick="SayHi3()">確定</button>
+    <p id="show"></p>
+
+    <script>   
+    
+        // //建立一個函式，有參數沒有return(回傳值)
+
+        // function sum(a,b) {
+
+        //     console.log(a + b);
+
+        // }
+        // //呼叫函示
+        // sum(2,3);
+        // sum(4,5);
+        // sum(1,3);
+        // sum(5,7);
+    
+
+        //建立一個函式，有參數有return(回傳值)
+
+        // function sum(a,b) {
+
+        //     //let c=a+b;
+        //     //函示用的值，只能在函示中使用。不能在外面做a,b的使用
+        //     return a+b;
+
+        // }
+        // //呼叫函示
+        // console.log(sum(2,3));
+        // let tot= sum(4,5);
+        // document.write(tot);
+        // sum(1,3);
+        // sum(5,7);
+
+         //建立一個函式，無參數無return(回傳值)
+        // function SayHi() {
+
+        //     alert("Hi");
+        // }
+        //呼叫函示
+        //SayHi();
+
+        
+        // //建立一個函式，無參數無return(回傳值)/////////////////
+        // var uName = prompt("請輸入您的稱呼:")
+
+        // function SayHi() {
+
+        //     alert("Hi,"+uName);
+
+        // }
+        // //呼叫函示
+        // SayHi();
+
+       
+         //建立一個函式，有參數有return(回傳值)
+        
+
+        function SayHi3() {
+
+           let name = document.getElementById("name");//文字方塊的值抓出來
+           let show = document.getElementById("show");
+           //show.textContent ="Hi,<br>"+name.value;//純文字
+           show.innerHTML= "Hi,<br>"+name.value;//含有HTML標籤，用這個就不會把<br>給印出來
+           //show.innerText ="Hi,\n"+ name.value;//適用\n等跳脫字元
+
+        }
+        //呼叫函示
+        //SayHi3();
+
+
+    </script>
+
+</body>
+
+</html>

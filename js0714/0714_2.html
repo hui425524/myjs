@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     請輸入姓名:<input type="text" id="name">
+    <button onclick="SayHi4()">確定</button> 0714_2
+    <p id="show"></p>
+
+    <script>
+
+        // function SayHi3() {
+
+        //    let name = document.getElementById("name");//文字方塊的值抓出來
+        //    let show = document.getElementById("show");
+        //    //show.textContent ="Hi,<br>"+name.value;//純文字
+        //    show.innerHTML= "Hi,<br>"+name.value;//含有HTML標籤，用這個就不會把<br>給印出來
+        //    //show.innerText ="Hi,\n"+ name.value;//適用\n等跳脫字元
+
+        // }
+        
+       
+
+        function SayHi4() {
+
+            getName();
+            let show = document.getElementById("show");
+
+           //show.textContent ="Hi,<br>"+name.value;//純文字
+           //show.innerHTML= "Hi,<br>"+name.value;//含有HTML標籤，用這個就不會把<br>給印出來
+           show.innerText ="Hi,\n"+ getName();//適用\n等跳脫字元
+
+        }
+//取得使用者的名稱
+        function getName(){
+
+            let name = document.getElementById("name").value;//文字方塊的值抓出來
+            return name;
+
+        }
+        //呼叫函示
+        //SayHi3();
+
+
+
+
+    </script>
+    
+</body>
+</html>
