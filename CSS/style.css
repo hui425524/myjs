@@ -47,7 +47,8 @@ text-decoration: none;
 /* 頁首區 (小小範圍的尺寸，不用根據網頁大小縮放=>>就用固定像素單位)*/
 
 #topbar{/* #是id主題 */
-    padding:20px;
+    display:flex;
+    padding:30px;
 }
 .logo{/* .是class有點像小標題 */
     width: 55px;

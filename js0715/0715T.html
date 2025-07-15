@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>產生樂透號碼</h2>
+    <p>
+        <!-- <button onclick="lott1()">威力彩</button>
+        <button onclick="lott2()">大樂透</button>
+        <button onclick="lott3()">今彩539</button> -->
+
+        <!--威力彩 1-38,種類,一區最大值，第一區要幾個，二區最大值，二區要多少個 -->
+        <button onclick="getLott(1,38,6,8,1)">威力彩</button> 
+        <button onclick="getLott(2,49,6,49,1)">大樂透</button>
+        <button onclick="getLott(3,39,5,0,0)">今彩539</button>
+
+    </p>
+
+    <p id="sortBefore">排序前號碼</p>
+    <p id="sortAfter">排序後號碼</p>
+    <p id="secNo">第二區號碼</p>
+
+    <script src="./t1.js"></script>
+
+</body>
+
+</html>

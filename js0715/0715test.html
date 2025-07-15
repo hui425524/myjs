@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        arr = [];
+        let tot = 0;
+        let a;
+
+
+
+        // console.log("EX1--------------------------")
+        // function printMany() {
+        //     for (let i = 1; i <= 100; i++) {
+        //         console.log(i);
+        //     }
+        // }
+        // printMany();
+
+        // console.log("--------------------------------EX2--------------------------")
+        // function printEvery3() {
+        //     for (let i = 1; i <= 88; i = i + 3) {
+        //         console.log(i);
+        //     }
+        // }
+        // printEvery3();
+        // // console.log("///////////////////EX2///////////////////////////")
+        // // /////////
+        // // for (let i = 1; i <= 88; i = i + 3) {
+        // //     console.log(i);
+        // // }
+        // console.log("EX3--------------------------")
+        // function stars(a) {
+        //     for (let i = 1; i <= a; i++) {
+        //         //console.log("*");
+        //         document.write('*');
+        //     }
+        // }
+
+
+        // console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTEX3--------------------------")
+        // function stars(a) {
+
+        //     let result="";
+
+        //     for (let i = 1; i <= a; i++) {
+
+        //        result+="*";
+
+        //     }
+
+        //     console.log(result);
+
+        // }
+
+        // stars(3);
+        // stars(10);
+
+        // console.log("--------------------------------EX4--------------------------")
+        // function isUpperCase(str) {
+
+        //     // if (str == "") return false;這只能一個空白
+
+        //     //很多空白會刪除.trim()
+        //     if(str.trim().length==0) return false;
+
+        //     if (str[0] === str[0].toUpperCase()) {
+        //         return true;
+        //     } else return false;
+
+        //     // if (str[0]===isUpperCase) return false;
+        //     // return str[0]=== str[0].toUpperCase();/////簡化成(因為不是真就是假)
+
+        // }
+
+
+        // console.log(isUpperCase("ABCD")); 		// returns true
+        // console.log(isUpperCase("")); 			// returns false
+        // console.log(isUpperCase("aBCD"));		// returns false
+
+        // console.log("--------------------------------EX5--------------------------")
+
+        // function isAllUpperCase(arr) {
+
+        //     //if (arr == "") return false;
+        //     if (arr.trim().length == 0) return false;
+
+        //     if (arr === arr.toUpperCase()) {
+        //         return true;
+        //     } else return false;
+
+        //     // if (str[0]===isUpperCase) return false;
+        //     // return str[0]=== str[0].toUpperCase();
+
+        // }
+
+        // console.log(isAllUpperCase("ABCD")); 			// returns true
+        // console.log(isAllUpperCase("")); 				// returns false
+        // console.log(isAllUpperCase("ABCDEFGHIJKLm")); 	// returns false
+
+        // console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTEX5--------------------------")
+
+        // function isAllUpperCase(arrT) {
+
+        //     //if (arr == "") return false;
+        //     if (arrT.trim().length == 0) return false;
+
+        //     let AllUpperCase = true;//預設所有字母為大寫
+
+        //     for (let i = 0; i < arrT.length; i++) {
+
+        //         if (arrT[i] !== arrT[i].toUpperCase()) {
+        //             AllUpperCase = false;
+
+        //         }
+
+        //     }
+        //     return AllUpperCase;
+
+        //     // if (str[0]===isUpperCase) return false;
+        //     // return str[0]=== str[0].toUpperCase();
+
+        // }
+        // console.log(isAllUpperCase("ABCD")); 			// returns true
+        // console.log(isAllUpperCase("")); 				// returns false
+        // console.log(isAllUpperCase("ABCDEFGHIJKLm")); 	// returns false
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        console.log("//////////////////EX6--------------------------")
+
+        function position(str) {
+            for (let i = 0; i < str.length; i++) {
+
+                // if (!str[0].isUpperCase) {
+                //     console.log("-1");
+                // } else {
+                //     console.log(str);
+                // }
+                if (str[i] === str[i].toUpperCase()) {
+                    return str[i] + " " + i;
+                }
+            }
+            return -1;
+
+        }
+        console.log(position("abcd")); 	// prints -1
+        console.log(position("AbcD"));		// prints A 0
+        console.log(position("abCD")); 	// prints C 2
+
+
+
+        console.log("//////////////////EX7--------------------------")
+
+        function findSmallCount(arr, n) {
+            tot = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+
+                if (arr[i] < n) {//陣列中的值 若小於n
+
+                    tot++;
+                }
+                //     else {
+                //         tot = 0;
+                //     }
+                // }
+                return tot;
+            }
+        }
+        console.log(findSmallCount([1, 2, 3], 2)); 			// returns 1
+        console.log(findSmallCount([1, 2, 3, 4, 5], 0)); 	// returns 0
+
+        console.log("//////////////////EX8--------------------------")
+
+        function findSmallerTotal(arr, n) {
+            tot = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+
+                if (arr[i] < n) {
+                    tot += arr[i];
+                }
+            }
+            return tot;
+        }
+        console.log(findSmallerTotal([1, 2, 3], 3)); 			// returns 3
+        console.log(findSmallerTotal([1, 2, 3], 1)); 			// returns 0
+        console.log(findSmallerTotal([3, 2, 5, 8, 7], 999)); 	// returns 25
+        console.log(findSmallerTotal([3, 2, 5, 8, 7], 0)); 		// returns 0
+
+        console.log("//////////////////EX9--------------------------")
+
+        function findAllSmall(arr9, n) {
+            arr = [];
+
+            for (let i = 0; i < arr9.length; i++) {
+
+                if (arr9[i] < n) {
+                    arr.push(arr9[i]);
+                }
+            }
+            return arr;
+
+        }
+        console.log(findAllSmall([1, 2, 3], 10)); 		// returns [1, 2, 3]
+        console.log(findAllSmall([1, 2, 3], 2)); 		// returns [1]
+        console.log(findAllSmall([1, 3, 5, 4, 2], 4)); 	// returns [1, 3, 2]
+
+
+
+
+
+
+
+
+        console.log("//////////////////EX10--------------------------")
+
+        function sum(arr) {
+            tot=0;//記得每一次都要清空喔!!
+            //if (str.trim().length == 0) return false;
+
+
+            for (let i = 0; i < arr.length; i++) {
+
+                tot += arr[i];
+
+            }
+
+            // console.log(tot);
+            return tot;
+
+        }
+        console.log(sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); 	// returns 55
+        console.log(sum([])); 							// return 0
+        console.log(sum([-10, -20, -30])); 				// return -60
+
+
+
+
+    </script>
+
+</body>
+
+</html>
