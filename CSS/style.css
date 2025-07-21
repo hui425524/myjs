@@ -55,7 +55,10 @@ time, mark, audio, video {
 }
 /* 重置字體 */
 body {
-font-family: sans-serif;
+font-family: 
+/* 可以全都給""，不過需要""只有: 中文字體名稱、兩個英文單字含空格 */
+/*西文*/ -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+/*中文*/ "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", /* "Noto Sans TC", */ sans-serif;
 /* font-size: 100%; */
 line-height: 1.5;
 }
@@ -81,6 +84,16 @@ text-decoration: none;
 /* 以下 1:動畫時間，2:delay時間 */
 transition:.2s; /*設定在hover上及未停留滿動畫時間時，滑鼠離開沒有動畫 */
 }
+/* 共用區 */
+/* 區塊標題 */
+.title {
+    
+}
+
+
+
+
+
 /* 頁首區 (小小範圍的尺寸，不用根據網頁大小縮放=>>就用固定像素單位)*/
 
 #topbar{/* #是id主題 */
@@ -127,9 +140,11 @@ div.logo{/* .是class有點像小標題 */
     padding: 0 10px;
     border-radius: 999px;
 /* 玻璃擬態 */
-    background-color: var(--alpha-w-20);
+    background-image: linear-gradient(to bottom right,rgba(255,255,255,.3)
+                                                    rgba(255,255,255,.7));
+    /* background-color: var(--alpha-w-20); */
     border: 2px solid var(--alpha-w-40);
-    backdrop-filter: blur(30px);/* 模糊 */
+    backdrop-filter: blur(10px);/* 模糊 */
     /* 容器陰影只針對元素本身 預設外陰影 ，內陰影inser*/
     box-shadow: 2px 4px 10px var(--alpha-b-20),
         inset -1px -1px 1px var(--alpha-w-40) ;
@@ -158,6 +173,7 @@ div.logo{/* .是class有點像小標題 */
    border-bottom: #000 3px solid;
 }
 /* 聯繫我們區 */
+
 #contact{
     /* 跟視窗一樣高? */
     height: 100vh;
@@ -166,6 +182,7 @@ div.logo{/* .是class有點像小標題 */
     background-color: var(--bg-1);
 
 }
+
 
 /*頁尾區*/
 
