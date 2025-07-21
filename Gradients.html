@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div
+{
+    border:1px solid black;
+    padding:35px;
+    background-image:url('icon.png');
+    background-repeat:no-repeat;
+    background-position:left;
+}
+/* <!-- 背景:線性漸層 --> */
+#div1-1{
+    background-image: linear-gradient(white,black);
+}
+#div1-2{
+    background-image: linear-gradient(black,transparent);
+}
+#div1-3{
+    background-image: linear-gradient(white 20%,black 70%);
+}
+#div1-4{
+    background-image: linear-gradient(to right, red,orange,yellow,green);
+}
+#div1-5{
+    background-image: linear-gradient(to bottom right, red , blue);
+}
+#div1-6{
+    background-image: linear-gradient(30deg, red, blue);
+}
+#div1-7{
+    background-image: linear-gradient(white 60%,green 60%);
+}
+#div1-8{
+    background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
+}
+/* <!-- 背景:放射性漸層 --> */
+#div2-1{
+    background-image: radial-gradient(white,black);
+}
+#div2-2{
+    background-image: radial-gradient(white 20%,black 70%);
+}
+/* <!-- 背景:錐形漸層 --> */
+#div3-1{
+    background-image: conic-gradient(white,black);
+}
+</style>
+</head>
+<body>
+    <h3>線性漸層</h3>
+    <p>linear-gradient(white,black)</p>
+    <div id="div1-1"></div>
+    <p>linear-gradient(black,transparent)</p>
+    <div id="div1-2"></div>
+    <p>linear-gradient(white 20%,black 70%)</p>
+    <div id="div1-3"></div>
+    <p>linear-gradient(to right, red,orange,yellow,green)</p>
+    <div id="div1-4"></div>
+    <p>linear-gradient(to bottom right, red , blue)</p>
+    <div id="div1-5"></div>
+    <p>linear-gradient(30deg, red, blue)</p>
+    <div id="div1-6"></div>
+    <p>linear-gradient(white 60%,green 60%)</p>
+    <div id="div1-7"></div>
+    <p>repeating-linear-gradient(red, yellow 10%, green 20%);</p>
+    <div id="div1-8"></div>
+
+    <h3>放射性漸層</h3>
+    <p>radial-gradient(white,black)</p>
+    <div id="div2-1"></div>
+    <p>radial-gradient(white 20%,black 70%)</p>
+    <div id="div2-2"></div>
+
+    <h3>錐形漸層</h3>
+    <p>conic-gradient(white,black)</p>
+    <div id="div3-1"></div>
+</body>
+</html>
