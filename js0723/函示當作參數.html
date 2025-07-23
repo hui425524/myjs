@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //////////////////將函示當作其他函式的參數
+        let sayHi=()=>{
+            return "Hi, ";
+        }
+//////////////////ONE
+                let welcome = (name)=>{
+                    console.log(sayHi()+name);
+                }
+                welcome("JS");
+
+
+        ////////////////////TWO
+                let welcome2 = (callback,name)=>{ //涵式裡面再指向另一個
+
+                    console.log(callback()+name);
+
+                }
+                welcome2(sayHi,"JS2");
+
+        //////////////////////////
+
+        
+    </script>
+    
+</body>
+</html>

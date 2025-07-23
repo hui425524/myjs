@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //建立物件
+       let user ={
+        //屬性成員
+        name:'ALEX',
+        age:16,
+        starSigns:'獅子座Leo',
+
+        //方法成員
+        showMsg:function(){
+            ///調用同一物件中的屬性成員
+        //方法一
+            console.log("Hi,我是"+user.name+"!");
+        //方法2
+            console.log("星座是:"+user.starSigns);
+        }
+
+
+       };
+
+    //取得物件屬性
+    //1.可用['屬性名稱'或""]
+    //2. ${物件裡面.屬性成員}
+    console.log(`使用者名稱:${user['name']}`);
+    console.log(`使用者年紀:${user.age}歲`);
+
+
+    //取得物件方法
+    user.showMsg();
+
+    user.age=17;
+    console.log(user.age);
+
+    //刪除後會回傳未定義
+    delete user.age;
+    console.log(user.age);
+
+
+
+    </script>
+</body>
+</html>

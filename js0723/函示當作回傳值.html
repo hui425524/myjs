@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       
+        /////函示當作其他函示傳回值 =>回傳值是函式
+        let sayhi=(name)=>{
+            return function(){
+
+                 console.log(name);
+            }
+           
+        }
+        sayhi("j")();
+
+        let sayhi2 = (name)=>{
+
+            return console.log(name);
+        }
+        sayhi2("j2");
+
+        ////////////回傳值帶有參數
+        let sayhi3 = (name)=>{
+
+            return function(str1){
+                console.log("HELLO,"+name+str1);
+            }
+        }
+        //第1(此函式名稱的參數)，第2(回傳值中函式的參數)
+        sayhi3("JS3")("，bye");
+
+
+    </script>
+    
+</body>
+</html>
