@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  div#clock -->
+   <p id="clock">線上時間區</p>
+   <button type="button" id="btn">STOP</button>
+
+    <script>
+        //當網頁被載入時，會執行
+        //addEventListener 監聽事件的方法
+        var timer;
+        window.addEventListener('load',function(){
+
+            //setInterval()每隔一段時間做指定的事情
+            timer = window.setInterval(function(){
+
+                let clock =document.getElementById("clock");
+                clock.textContent=new Date().toLocaleString();
+            },1000);///一秒更新一次，1秒=1000毫秒
+
+
+        //     let btn=document.getElementById('btn');
+        //     btn.addEventListener('click',function(){
+        //     window.clearInterval(timer);
+        // });
+
+
+
+        });
+        ////時間停止
+        let btn=document.getElementById('btn');
+        btn.addEventListener('click',function(){
+            window.clearInterval(timer);
+        });
+
+    </script>
+    
+</body>
+</html>
