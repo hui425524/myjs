@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //涵式的回傳值return再討論
+        //建立一個涵式，若超過分數離開涵式，否則檢查是否及格
+
+        let checkScore = (score) => {
+
+            if (score < 0 || score > 100) {
+
+                console.log("超出分數有效範圍");
+                return;//結束涵式，在if裡面無法用break
+            } 
+
+                //檢查是否及格
+
+                if (score >= 60) {
+                    console.log("及格~很棒");
+                } else {
+                    console.log("不及格，再努力");
+                }
+            
+
+        }
+        checkScore(111);
+
+        
+
+
+    </script>
+
+</body>
+
+</html>

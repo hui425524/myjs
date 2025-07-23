@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //建立add()涵式，計算所有參數總和
+        // let add=(n1,n2,n3=0,n4=0) =>{
+        //     let tot=n1+n2+n3+n4;
+        //     return tot;
+        // }
+
+        // //建立其餘參數...加上名稱；會自動轉為陣列
+        // let add = (...num) => {
+        //     let tot = 0;
+        //     for(let n of num){
+        //          tot+=n;
+        //     }
+        //     // for(let i=0;i<num.length;i++){
+        //     //     tot+=num[i];
+        //     // }
+        //     // return tot;
+        // }
+
+         //建立其餘參數...加上名稱；會自動轉為陣列
+        let add = (...[x,y,z]) => {
+            let tot = 0;
+            console.log(x);
+            console.log(y);
+            console.log(z);
+            
+             return tot;
+        }
+        console.log(add(5, 3));//[5,3]
+        // console.log(add(5, 3, 10));
+        // console.log(add(5, 3, 10, 8));
+
+
+    </script>
+
+</body>
+
+</html>

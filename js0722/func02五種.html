@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //梯形面積
+
+        //傳統
+        function getA(t,b,h){
+            let area=(t+b)*h /2;
+            return `梯形面積=${area}`;
+        }
+        console.log(getA(10,20,10));
+        
+        //匿名
+          let getA2 = function(t,b,h){
+            let area=(t+b)*h /2;
+            return `梯形面積2=${area}`;
+        }
+        console.log(getA2(10,20,10));
+
+
+        //箭頭
+         let getA3 = (t,b,h)=>{
+            let area=(t+b)*h /2;
+            return `梯形面積3=${area}`;
+        }
+        console.log(getA3(10,20,10));
+
+
+
+        //預設
+         let getA4 = (t,b,h=10)=>{
+            let area=(t+b)*h /2;
+            return `梯形面積4=${area}`;
+        }
+        console.log(getA4(10,20));//沒有給值，會使用預設值
+        console.log(getA4(10,20,5));//已經預設值，但!還是可以再給予值
+
+
+        //具名:可以不按照參數的順序給值，需使用物件型別{} 傳送 與 接收 指定參數
+
+        let getA5 = ({t,b,h})=>{
+            let area=(t+b)*h /2;
+            return `梯形面積5=${area}`;
+        }
+        console.log(getA5({b:10,t:20,h:10}));
+
+
+
+
+    </script>
+    
+</body>
+</html>
