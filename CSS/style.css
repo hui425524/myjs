@@ -29,7 +29,7 @@
     --alpha-b-20: rgba(0, 0, 0, 0.2);
 
     /* 尺寸 */
-    --ex: 99999;
+    --ex: 99999px;
     /* 圓角要(單位)px */
 
 
@@ -180,10 +180,10 @@ a {
 
 /* 共用區 */
 /* 區塊標題 */
-/* .title {
+.title {
     margin-bottom: 30px;
     text-align: center;
-} */
+}
 
 .title * {
     /* 星號 代表所有子元素 */
@@ -195,6 +195,7 @@ a {
     font-family: "LXGW WenKai TC", cursive;
     font-weight: 700;
     font-style: 1.2rem;
+    /* margin-top: 10px; */
     border-bottom: solid 2px var(--deep);
 }
 
@@ -202,7 +203,7 @@ a {
     font-family: "LXGW WenKai TC", cursive;
     font-weight: 400;
     font-size: 1.2rem;
-    
+    margin-top: 10px;
 }
 
 
@@ -307,6 +308,8 @@ div.logo {
 #topbar .menu a {
     /* 1.導航列項目間距離 
 2.先預留hover上去，線的位置，否則外框會變動*/
+
+    /*  font-weight: 700; */
     margin: 10px;
     border-bottom: 2px solid transparent;
 }
@@ -334,14 +337,14 @@ div.logo {
 
 }
 
-/* #contact .content {
+#contact .content {
     display: flex;
     width: 80%;
 }
 
-#contact .content>* {
+#contact .content > * {
     flex: 1;
-    將聯絡區塊與表單 各分一半(父元素=flex)
+    /* 將聯絡區塊與表單 各分一半(父元素=flex) */
     margin: 0 15px;
 
 }
@@ -355,7 +358,7 @@ div.logo {
     font-size: .8rem;
     font-style: normal;
     margin: 10px 0;
-} */
+}
 
 /*頁尾區*/
 

@@ -1,12 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        form > * {
+            display: block;
+        }
+
+        label,fieldset{
+            margin-top: 30px;
+        }
+    </style>
 </head>
+
 <body>
+    <!-- 搜尋表單 -->
+    <h2>搜尋表單</h2>
     <form action="" method="post" accept-charset="UTF-8"></form>
+    <label for="search">搜尋:</label>
+    <input type="search" name="search" id="search" size="15">
+    <input type="submit" value="搜尋">
+
+    <!-- 會員資料修改表單 -->
+    <h2>會員資料修改</h2>
+    <small>* 為必填</small>
+    <form action="" method="post" accept-charset="UTF-8"></form>
+    <label for="uname">*姓名:</label>
+    <!-- autofocus 只能設在一開始表單的上面(若在下面 會直接滑到網頁最下面) -->
+    <!-- autofocus 一頁只有一個欄位可以用(不然太多的話，游標會不知道要取哪) -->
+    <input type="text" name="uname" id="uname" title="姓名欄位" placeholder="請輸入姓名" required autofocus><br>
+
+
+    <!-- 很少使用 只讀 -->
+    <label for="">*身分證字號</label>
+    <input type="text" name="uid" id="uid" title="身分證字號" required readonly><br>
+
+
+    <label for="account">*帳號:(禁用)</label>
+    <input type="text" name="account" id="account" title="帳號" required><br>
+
+    <!-- 禁用 disabled-->
+    <label for="password">*密碼:</label>
+    <input type="password" name="password" id="password" title="密碼" required  placeholder="請輸入8位以上英文+數字"><br>
+
+    <!-- id 與 for 不可重複  -->
+    <label for="password2">*再次確認密碼:</label>
+    <input type="password2" name="password2" id="password2" title="確認密碼" required disabled><br>
+
+
+    <label for="email">*EMAIL:</label>
+    <!-- multiple可輸入多個值用<，>隔開 -->
+    <input type="email" name="email" id="email" title="email" required multiple placeholder="請輸入信箱">
+
+    <label for="tel">連絡電話:</label>
+    <input type="tel" name="tel" id="tel" title="電話" maxlength="10" placeholder="請輸入電話"><br>
+
+    <label for="website">官方網站</label>
+    <input type="url" name="website" id="website" placeholder="請輸入網址"><br>
+
+
+    <label for="file">上傳檔案:</label>
+    <small>僅限 .jpg .png .gif .pdf檔案類型</small>
+    <input type="file" name="file" id="file" multiple><br>
+
+
+    <label for="color">顏色:</label>
+    <input type="color" name="color" id="color"><br>
+
+    <label for="number">數量:</label>
+    <input type="number" name="number" id="number" style="width: 50;"><br>
+
+    <input type="range" name="range" id="range"><br>
+
+
+    <label for="birthday">生日:</label>
+    <input type="date" name="birthday" id="birthday"><br>
+
+
+    <label for="sex">性別:</label>
+    <select name="sex" id="sex">
+    <option >請選擇</option>
+    <option value="男">男</option>
+    <option value="女">女</option>
+    </select>
+
+
+    <label for="other">其他類別:</label>
+    <select name="other" id="other">
+        <option >請選擇</option>
+        <optgroup label="分類一">
+        <!-- <option >請選擇</option> -->
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <optgroup label="分類二">
+        <!-- <option >請選擇</option> -->
+        <option value="C">C</option>
+        <option value="D">D</option>
+    </select>
+
+    <!-- 單邊按鈕 -->
+     <!-- name要一樣的名字 -->
+     <fieldset>
+        <legend>會員等級</legend>
+         <input type="radio" name="category1"  id="member-1">
+         <label for="member-1">金卡會員</label>
+         <input type="radio" name="member-1"  id="member-2">
+         <label for="member-2">金卡會員</label>
+         <input type="radio" name="member-1"  id="member-3">
+         <label for="member-3">金卡會員</label>
+     </fieldset>
+
+       <fieldset>
+        <legend>類型名稱</legend>
+         <input type="radio" name="category1"  id="category1">
+         <label for="category1">金卡會員</label>
+         <input type="radio" name="category1"  id="member-2">
+         <label for="member-2">金卡會員</label>
+         <input type="radio" name="category1"  id="member-3">
+         <label for="member-3">金卡會員</label>
+     </fieldset>
     
 </body>
+
 </html>
