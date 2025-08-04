@@ -359,6 +359,36 @@ div.logo {
     font-style: normal;
     margin: 10px 0;
 }
+#contactform > *{
+    display: block;
+    width: 100%;
+
+}
+#contactform label{
+    margin: 30px 0 10px ;
+}
+/* 外框給顏色 */
+#contactform input,
+#contactform textarea{
+    border: 1px solid var(--lesser-3);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--lesser-4);
+    
+}
+
+#contactform input:focus,
+#contactform textarea:focus{
+
+    outline: 2px solid var(--lesser-4);
+}
+#contactform input::placeholder,
+#contactform textarea::placeholder{
+
+    color:  var(--lesser-4);
+}
+
+
 
 /*頁尾區*/
 

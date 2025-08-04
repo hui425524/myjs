@@ -85,7 +85,21 @@
 
 
                 <!-- 表單 -->
-                <form action="">表單內容</form>
+                <form name="contactform" id="contactform" action="" method="post" accept-charset="UTF-8">
+                    <label for="uname">*姓名:</label>
+                    <!-- autofocus 只能設在一開始表單的上面(若在下面 會直接滑到網頁最下面) -->
+                    <!-- autofocus 一頁只有一個欄位可以用(不然太多的話，游標會不知道要取哪) -->
+                    <input type="text" name="uname" id="uname" title="姓名欄位" placeholder="請輸入姓名" required autofocus><br>
+
+                    <label for="email">*EMAIL:</label>
+                    <!-- multiple可輸入多個值用<，>隔開 -->
+                    <input type="email" name="email" id="email" title="email" required placeholder="請輸入信箱"><br>
+
+                    <label for="tel">連絡電話:</label>
+                    <input type="tel" name="tel" id="tel" title="電話" maxlength="10" placeholder="請輸入電話"><br>
+                    <label for="msg">留言:</label>
+                    <textarea name="msg" id="msg" rows="10"></textarea>
+                </form>
             </div>
 
         </section>
