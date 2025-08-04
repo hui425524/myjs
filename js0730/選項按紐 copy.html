@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 副選radio -->
+    <form action="">
+        <input type="checkbox" name="subject" value="html">HTML
+        <input type="checkbox" name="subject" value="css">CSS
+        <input type="checkbox" name="subject" value="js">JS
+        <input type="button" id="btn" value="送出">
+
+    </form>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente itaque alias unde quod nostrum modi,
+        blanditiis porro, distinctio nesciunt explicabo quo facere sint eos sunt, asperiores impedit dolorum quas
+        beatae?</p>
+    <p id="result"></p>
+    <script>
+        let btn = document.querySelector("#btn");
+        
+        btn.addEventListener("click", function () {
+
+            let subject = document.getElementsByName("subject");
+            // 
+            //逐一檢查是否被選取
+            for (let i = 0; i < subject.length; i++) {
+                if (subject[i].checked) {
+
+                let span=document.createElement("span");
+                span.textContent=subject[i].value;
+
+
+                
+
+                    // console.log(subject[i].value);
+                    result.innerHTML += subject[i].value + "<br>";
+                }               
+
+            }
+
+            
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

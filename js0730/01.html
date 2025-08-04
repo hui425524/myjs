@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 兩個以上要使用= class(.) */
+
+    form span{
+        color: brown;
+    }
+
+
+</style>
+
+<body>
+    <form id="my" method="post">
+
+        <!-- 帳號 -->
+        <label for="uid"><span>*</span>帳號</label>
+        <input type="text" id="uid" required>
+        <br>
+        <!-- 密碼 -->
+        <label for="upw"><span>*</span>密碼</label>
+        <input type="password" id="upw" required>
+
+        <!--  err訊息 -->
+          <br>
+          <span id="msg">11111111</span>
+          <P>
+             <!-- 送出 -->
+            <input id="btn" type="button" value="送出">
+            <!-- 重設 -->
+            <!-- <input type="reset" value="重新填寫"> -->
+
+          </P>
+
+
+    </form>
+
+    <script>
+
+        //取得帳號密碼
+        let uid = document.querySelector("#uid");
+        let upw = document.querySelector("#upw");
+        //   取得訊息位置
+        let msg =document.querySelector("#msg");
+
+
+        //取得按鈕
+        let btn=document.querySelector("#btn");
+        btn.addEventListener("click",function(){
+
+            let strMsg="";//存放所有err訊息
+
+            if(uid.value.length===0){
+                strMsg += "帳號不可為空<br>";
+            }
+            if(upw.value.length===0){
+                strMsg += "密碼不可為空<br>";
+            }
+
+            //顯示結果!!
+
+            msg.innerHTML=strMsg;
+            msg.style.color="green";
+
+
+        })
+
+    
+    </script>
+
+</body>
+
+</html>
