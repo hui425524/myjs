@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        form > * {
+        form>* {
             display: block;
         }
 
-        label,fieldset{
+        label,
+        fieldset {
             margin-top: 30px;
         }
     </style>
@@ -27,7 +28,7 @@
     <!-- 會員資料修改表單 -->
     <h2>會員資料修改</h2>
     <small>* 為必填</small>
-    <form action="" method="post" accept-charset="UTF-8"></form>
+    <form action="" method="post" accept-charset="UTF-8">
     <label for="uname">*姓名:</label>
     <!-- autofocus 只能設在一開始表單的上面(若在下面 會直接滑到網頁最下面) -->
     <!-- autofocus 一頁只有一個欄位可以用(不然太多的話，游標會不知道要取哪) -->
@@ -44,7 +45,7 @@
 
     <!-- 禁用 disabled-->
     <label for="password">*密碼:</label>
-    <input type="password" name="password" id="password" title="密碼" required  placeholder="請輸入8位以上英文+數字"><br>
+    <input type="password" name="password" id="password" title="密碼" required placeholder="請輸入8位以上英文+數字"><br>
 
     <!-- id 與 for 不可重複  -->
     <label for="password2">*再次確認密碼:</label>
@@ -82,47 +83,67 @@
 
     <label for="sex">性別:</label>
     <select name="sex" id="sex">
-    <option >請選擇</option>
-    <option value="男">男</option>
-    <option value="女">女</option>
+        <option>請選擇</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
     </select>
 
 
     <label for="other">其他類別:</label>
     <select name="other" id="other">
-        <option >請選擇</option>
+        <option>請選擇</option>
         <optgroup label="分類一">
-        <!-- <option >請選擇</option> -->
-        <option value="A">A</option>
-        <option value="B">B</option>
+            <!-- <option >請選擇</option> -->
+            <option value="A">A</option>
+            <option value="B">B</option>
         <optgroup label="分類二">
-        <!-- <option >請選擇</option> -->
-        <option value="C">C</option>
-        <option value="D">D</option>
+            <!-- <option >請選擇</option> -->
+            <option value="C">C</option>
+            <option value="D">D</option>
     </select>
 
     <!-- 單邊按鈕 -->
-     <!-- name要一樣的名字 -->
-     <fieldset>
+    <!-- name要一樣的名字 -->
+    <fieldset disabled>
         <legend>會員等級</legend>
-         <input type="radio" name="category1"  id="member-1">
-         <label for="member-1">金卡會員</label>
-         <input type="radio" name="member-1"  id="member-2">
-         <label for="member-2">金卡會員</label>
-         <input type="radio" name="member-1"  id="member-3">
-         <label for="member-3">金卡會員</label>
-     </fieldset>
+        <input type="radio" name="category1" id="member-1">
+        <label for="member-1">金卡會員</label>
+        <input type="radio" name="member-1" id="member-2">
+        <label for="member-2">銀卡會員</label>
+        <input type="radio" name="member-1" id="member-3" checked>
+        <label for="member-3">銅卡會員</label>
+    </fieldset>
 
-       <fieldset>
-        <legend>類型名稱</legend>
-         <input type="radio" name="category1"  id="category1">
-         <label for="category1">金卡會員</label>
-         <input type="radio" name="category1"  id="member-2">
-         <label for="member-2">金卡會員</label>
-         <input type="radio" name="category1"  id="member-3">
-         <label for="member-3">金卡會員</label>
-     </fieldset>
-    
+    <fieldset>
+        <legend>訂閱方案:
+
+        </legend>
+        <!-- checked 預選 -->
+        <input type="radio" name="category" id="category1" value="類型1" checked>
+        <label for="category">1年</label>
+        <input type="radio" name="category" id="member-2" value="類型2">
+        <label for="member-2">半年</label>
+        <input type="radio" name="category" id="member-3" value="類型3">
+        <label for="member-3">3個月</label>
+    </fieldset>
+
+    <!-- 複選框 -->
+    <legend>訂閱報紙: <br>
+        <label for="order-1">國際</label>
+        <input type="checkbox" name="order" id="order-1" value="國際">
+
+        <label for="order-2">娛樂</label>
+        <input type="checkbox" name="order" id="order-2" value="娛樂">
+
+        <label for="order-3">國內</label>
+        <input type="checkbox" name="order" id="order-3" value="國內">
+
+    </legend>
+<div>
+     <input type="reset">
+    <input type="submit" value="送出">
+</div>
+ </form>  
 </body>
 
 </html>
