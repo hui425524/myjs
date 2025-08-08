@@ -28,8 +28,9 @@
 
     --alpha-b-20: rgba(0, 0, 0, 0.2);
 
-    /* 尺寸 */
-    --ex: 99999px;
+    /* 尺寸 (不需要單位，為了讓TOPBAR可以維持在最上面)*/
+    --ex: 99999;
+
     /* 圓角要(單位)px */
 
 
@@ -181,8 +182,9 @@ a {
 /* 共用區 */
 /* 區塊標題 */
 .title {
+    margin-top: 110px;
     margin-bottom: 30px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .title * {
@@ -204,7 +206,72 @@ a {
     font-weight: 400;
     font-size: 1.2rem;
     margin-top: 10px;
+
 }
+
+.btn-animate {
+
+    /* position: relative; */
+    /* outline: none; */
+    /* text-decoration: none; */
+
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* 在畫面上的指標手勢 */
+    margin: 15px auto;
+    /* 有固定尺寸就可以設定auto */
+
+    /* text-transform: uppercase; */
+
+    height: 60px;
+    width: 210px;
+
+
+    /* 重置button預設值 */
+    background-color: #ffffff;
+    border: 1px solid var(--lesser-3);
+    color: var(--lesser-4);
+
+    /* 字距置中 */
+    letter-spacing: 15px;
+    padding-left: 15px; /* 在前面補一個字距的空間，讓視覺置中 */
+
+
+    /* opacity: 1;
+  background-color: #ffffff;
+  border: 1px solid rgba(22, 76, 167, 0.6); */
+
+}
+
+
+.btn-animate:hover {
+    animation: myRotate 1s both;
+}
+
+@keyframes myRotate {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(3deg); }
+  50%  { transform: rotate(-3deg);}
+  75%  { transform: rotate(1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.btn-animate:hover span {
+    animation: myStorm 1s .1s both;
+}
+@keyframes myStorm {
+  0%   { transform: translate3d(0, 0, 0);}
+  25%  { transform: translate3d(4px, 0, 0);}
+  50%  { transform: translate3d(-3px, 0, 0);}
+  75%  { transform: translate3d(2px, 0, 0);}
+  100% { transform: translate3d(0, 0, 0);}
+}
+
+
+
 
 
 
@@ -323,13 +390,20 @@ div.logo {
 /* 聯繫我們區 */
 
 #contact {
+    /* 相對定位，照原本位置排 */
+    position: relative;
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
+
     /*主軸垂直*/
     justify-content: center;
     align-items: center;
+
     /* 跟視窗一樣高? */
     height: 100vh;
+
     /* 背景影像排序較高，排序高於背景顏色 */
     /* background-image: url(../images/banner_1.jpg); */
     background-color: var(--bg-1);
@@ -342,12 +416,14 @@ div.logo {
     width: 80%;
 }
 
-#contact .content > * {
+#contact .content>* {
     flex: 1;
     /* 將聯絡區塊與表單 各分一半(父元素=flex) */
     margin: 0 15px;
 
 }
+
+
 
 #contact .content h1 {
     font-size: 1.5rem;
@@ -359,33 +435,65 @@ div.logo {
     font-style: normal;
     margin: 10px 0;
 }
-#contactform > *{
+
+
+/* 裝飾花朵 */
+#contact figure {
+
+    position: absolute;
+    width: 250px;
+
+}
+
+#contact .flower_1 {
+
+
+    left: 0;
+    bottom: -30px;
+
+
+}
+
+#contact .flower_2 {
+
+
+    right: 0;
+    top: 100px;
+    /* deg度 */
+    transform: rotate(-30deg);
+
+}
+
+#contactform>* {
     display: block;
     width: 100%;
 
 }
-#contactform label{
-    margin: 30px 0 10px ;
+
+#contactform label {
+    margin: 15px 0 5px;
 }
+
 /* 外框給顏色 */
 #contactform input,
-#contactform textarea{
+#contactform textarea {
     border: 1px solid var(--lesser-3);
     padding: 10px;
     border-radius: 5px;
     color: var(--lesser-4);
-    
+
 }
 
 #contactform input:focus,
-#contactform textarea:focus{
+#contactform textarea:focus {
 
     outline: 2px solid var(--lesser-4);
 }
-#contactform input::placeholder,
-#contactform textarea::placeholder{
 
-    color:  var(--lesser-4);
+#contactform input::placeholder,
+#contactform textarea::placeholder {
+
+    color: var(--lesser-4);
 }
 
 
