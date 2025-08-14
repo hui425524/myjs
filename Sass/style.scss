@@ -99,6 +99,11 @@
         @include glassmorphism;
 
 
+        a{
+            font-family:$family-en;
+            font-weight: $f-w-b;
+        }
+
 
     }
 
