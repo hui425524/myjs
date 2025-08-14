@@ -1,0 +1,114 @@
+@use "reset";
+@use "Variable" as *;
+@use "function" as *;
+@use "keyframes" as *;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=LXGW+WenKai+TC&display=swap');
+
+// @font-face {
+//     font-family: Avenue;
+//     src: url();
+// }
+
+@font-face {
+    font-family: kaoly;
+    src: url(../webfont/Kaoly\ Demo-Regular.ttf);
+}
+
+/* 共用區 */
+/* 區塊標題 */
+.title {
+
+    margin: $space-ex 0 $space-xl;
+
+    * {
+        text-align: center;
+    }
+
+
+    h2 {
+        font-family: $family-en;
+        font-size: $f-s-xxxl;
+        @include border-b;
+    }
+
+    h3 {
+        font-family: $family-tc;
+        font-size: $f-s-lg;
+
+    }
+
+}
+
+.logo {
+    width: 55px;
+}
+
+.icon {
+
+    a {
+        width: 35px;
+        height: 35px;
+        margin: $s-xxs;
+
+    }
+}
+// 迴圈不須被調用，可直接使用
+@each $social in fb,ig,line {
+    .icon-#{$social}{
+
+        background-image: url(../images/icon-#{$social}.svg);
+    }
+
+}
+
+
+
+
+
+
+
+
+#contactform {
+    .btn-animate {
+        @extend %btn-animate;
+    }
+}
+
+// 頁首
+#topbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: $w-100;
+    z-index: $z-ex;
+    @extend %flex-between;
+    padding: $s-xs $s-xl;
+
+
+    ul {
+        // display: flex;
+        // justify-content: flex-end;
+        @extend %flex-end;
+    }
+    .menu{
+        padding: $s-x-xs;
+        border-radius: $r-ex;
+        @include glassmorphism;
+
+
+
+    }
+
+}
+
+
+
+
+// 按鈕區
+// .btn-animate{
+
+//     border-radius: $radius-ex;
+// }

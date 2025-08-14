@@ -1,0 +1,42 @@
+// 繼承
+@use "../variable" as *;
+@use "./mixin" as *;
+
+// extend也在function資料夾裡 所以不可直接調用一整個檔案
+// 只需調mixin檔案
+
+%flex-center{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+%flex-between{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+%btn-animate{
+    border-radius: $r-ex;
+    @extend %flex-center;
+    height: 60px;
+    width: 210px;
+
+    cursor:pointer;
+    margin:$space-md auto;
+    @include bordered;
+    color:$lesser-4;
+    letter-spacing: $s-sm;
+    padding-left: $s-sm;
+
+    &:hover{
+        @include amt($name: myRotate);
+
+        span{
+
+            @include amt($name:myStorm)
+        }
+
+    }
+}

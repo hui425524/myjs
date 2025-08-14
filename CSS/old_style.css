@@ -1,14 +1,11 @@
 @charset "UTF-8";
 /* font一定要在第二行 */
-/* 中文字-goole font-import複製過來 */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=LXGW+WenKai+TC&display=swap');
 
-
-/* 英文字要另外建一個資料夾 將字體下載下來放入資料夾 */
-@font-face{
-    font-family: kaoly ;
-    src:url(../webfont/Kaoly\ Demo-Regular.ttf);
-}
+/* @font-face{
+    font-family: ;
+    src:url();
+} */
 
 /* @font-face{
     font-family: ;
@@ -229,7 +226,7 @@ a {
     /* text-decoration: none; */
 
     border-radius: 50px;
-    display: flex !important; /*為了強調  */
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -240,10 +237,7 @@ a {
     /* text-transform: uppercase; */
 
     height: 60px;
-    width: 210px !important;
-
-    cursor: pointer;
-    margin: 20px auto;
+    width: 210px;
 
 
     /* 重置button預設值 */

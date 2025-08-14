@@ -1,0 +1,31 @@
+// 
+// 因為RWD的關係 所以不能寫在繼承裡面
+@use "../variable/" as *;
+
+@mixin border-b( $width:3px , $color:$Charcoal){
+    border-bottom: solid $width $color;
+}
+// 
+@mixin bordered($width:1px , $color:$lesser-3){
+    border-bottom: solid $width $color;
+}
+@mixin amt($name ,$speed:.75s){
+
+animation:$name $speed both;
+
+}
+
+@mixin glassmorphism{
+    /* 玻璃擬態 */
+    background-image: linear-gradient(to bottom right,$alpha-w-40,$alpha-w-70);
+    /* background-color: var(--alpha-w-20); */
+    // border: 2px solid var(--alpha-w-40);
+    @include bordered($width:2px,$color:$alpha-w-40 );
+
+    backdrop-filter: blur(10px);
+    /* 模糊 */
+    /* 容器陰影只針對元素本身 預設外陰影 ，內陰影inser*/
+    box-shadow: 2px 4px 10px $alpha-b-20,
+        inset -1px -1px 1px $alpha-w-40;
+}
+    
