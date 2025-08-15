@@ -18,7 +18,7 @@
 /* 區塊標題 */
 .title {
 
-    margin: $s-ex 0 $s-xl;
+    margin: $s110 0 $s30;
 
     * {
         text-align: center;
@@ -85,7 +85,7 @@
     width: $w-100;
     z-index: $z-ex;
     @extend %flex-between;
-    padding: $s-xs $s-xl;
+    padding: $s-xs $s30;
 
 
     ul {
@@ -247,10 +247,19 @@
 #footer {
 
     @extend %flex-between;
-    padding: $s-md $s-xl ;
+    padding: $s-md $s30 ;
     background-color: $lesser-4;
     /* 改頁尾區字顏色 */
     color: $light;
+
+    @media ($mediaMd) { /*max-width:970  */
+        flex-direction: column;
+    }
+
+    a {
+        /* 改頁尾區a標籤裡面 字顏色 */
+        color: $light;
+    }
 
     h2 {
         font-size: $f-s-xl;
@@ -261,18 +270,32 @@
         }
     }
 
-    a {
-        /* 改頁尾區a標籤裡面 字顏色 */
-        color: $light;
-    }
+
 
     .sitemap {
         display: flex;
         /* 水平排 */
 
+        @media ($mediaMd) {
+            margin-top: $s30;
+        }
+
+        @media ($mediaSm) {
+           flex-direction: column;
+
+           ul{
+
+            padding-left: $s-md;
+            li{
+                padding: $s-y-xs;
+            }
+
+           }
+        }
+
         /* > 只會指定第一層 */
         >li {
-            margin: 0 10px;
+            margin: $s-x-xs;
         }
 
     }
@@ -284,8 +307,3 @@
 
 
 }
-
-
-
-
-
