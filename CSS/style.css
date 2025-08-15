@@ -145,7 +145,7 @@ a {
   align-items: center;
 }
 
-#topbar, #footer {
+#topbar, footer {
   display: flex;
   justify-content: space-between;
 }
@@ -320,6 +320,7 @@ a {
   flex-direction: column;
   /* 跟視窗一樣高? */
   height: 100vh;
+  background-color: #f2edf0;
 }
 #contact .content {
   display: flex;
@@ -379,52 +380,59 @@ a {
   transform: rotate(-30deg);
 }
 
-#footer {
+footer {
   padding: 20px 30px;
   background-color: #8f6d6e;
   /* 改頁尾區字顏色 */
   color: #f1f1f1;
 }
-@media (max-width:820px) {
-  #footer { /*max-width:970  */
-    flex-direction: column;
-  }
-}
-#footer a {
+footer a {
   /* 改頁尾區a標籤裡面 字顏色 */
   color: #f1f1f1;
 }
-#footer h2 {
+footer h2 {
   font-size: 1.5rem;
 }
-#footer h2 span {
+footer h2 span {
   font-size: 1rem;
 }
-#footer .sitemap {
+@media (max-width:820px) {
+  footer {
+    /*max-width:970  */
+    flex-direction: column;
+  }
+}
+footer .sitemap {
   display: flex;
   /* 水平排 */
   /* > 只會指定第一層 */
 }
 @media (max-width:820px) {
-  #footer .sitemap {
+  footer .sitemap {
     margin-top: 30px;
   }
 }
 @media (max-width:640px) {
-  #footer .sitemap {
+  footer .sitemap {
     flex-direction: column;
   }
-  #footer .sitemap ul {
+  footer .sitemap ul {
     padding-left: 20px;
   }
-  #footer .sitemap ul li {
+  footer .sitemap ul li {
     padding: 10px 0;
   }
 }
-#footer .sitemap > li {
+footer .sitemap > li {
   margin: 0 10px;
 }
-#footer small {
+footer small {
   /* 只有它一個要下去=>使用self */
   align-self: flex-end;
+}
+@media (max-width:640px) {
+  footer small {
+    align-self: flex-start;
+    margin-top: 30px;
+  }
 }

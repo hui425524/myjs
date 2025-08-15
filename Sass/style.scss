@@ -127,7 +127,7 @@
     flex-direction: column;
     /* 跟視窗一樣高? */
     height: 100vh;
-
+    background-color: $bg-1;
 
 
     // display: flex;
@@ -244,7 +244,7 @@
 }
 
 // 頁尾區
-#footer {
+footer {
 
     @extend %flex-between;
     padding: $s-md $s30 ;
@@ -252,14 +252,11 @@
     /* 改頁尾區字顏色 */
     color: $light;
 
-    @media ($mediaMd) { /*max-width:970  */
-        flex-direction: column;
-    }
-
     a {
         /* 改頁尾區a標籤裡面 字顏色 */
         color: $light;
     }
+
 
     h2 {
         font-size: $f-s-xl;
@@ -268,6 +265,11 @@
             font-size: $f-s-md
                 /* rem 抓瀏覽器的預設大小?? */
         }
+    }
+
+    @media ($mediaMd) {
+        /*max-width:970  */
+        flex-direction: column;
     }
 
 
@@ -281,16 +283,17 @@
         }
 
         @media ($mediaSm) {
-           flex-direction: column;
+            flex-direction: column;
 
-           ul{
+            ul {
 
-            padding-left: $s-md;
-            li{
-                padding: $s-y-xs;
+                padding-left: $s-md;
+
+                li {
+                    padding: $s-y-xs;
+                }
+
             }
-
-           }
         }
 
         /* > 只會指定第一層 */
@@ -303,7 +306,13 @@
     small {
         /* 只有它一個要下去=>使用self */
         align-self: flex-end;
-    }
 
-
+         @media ($mediaSm) {
+            
+                 align-self: flex-start;
+                 margin-top: $s30;
+            }
+        }
 }
+
+

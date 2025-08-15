@@ -1,11 +1,123 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
-</head>
-<body>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>花訪</title>
+    <link rel="stylesheet" href="./css/style.min.css">
+    <!-- 必須為正方形 16*16 (通常會做48*48((ip@3 -->
+    <link rel="icon" href="./favicon.ico">
+</head>
+
+<body>
+    <!-- 頁首區 -->
+
+    <!--(ctrl + ?/ )整句註解-->
+    <!-- 加入空註解「 shift 」 +「 alt 」 + 「 A 」 -->
+    <header id="topbar">
+
+        <div class="logo">
+            <img src="./images/logo_b.svg" alt="logo">
+            <!-- alt可以為空值，但不可刪除 -->
+
+        </div>
+        <nav class="navgation">
+            <!-- 社群媒體主選單 -->
+            <!-- 快捷鍵=> ul>li*3>a -->
+            <ul class="icon">
+                <li><a class="icon-fb" href="#"></a></li>
+                <li><a class="icon-ig" href="#"></a></li>
+                <li><a class="icon-line" href="#"></a></li>
+            </ul>
+
+
+            <!-- 主選單 -->
+            <!-- 快捷鍵=> ul>li*6>a -->
+            <ul class="menu"> <!-- 加入空註解「 shift 」 +「 alt 」 + 「 A 」 -->
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="#">NEWS</a></li><!-- #還不知道要連結去哪 -->
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+
+
+        </nav>
+
+    </header>
+    <main>
+        <section id="banner"></section>
+        <section id="news">
+            <!-- 聯絡區塊 -->
+            <section id="news">
+                <header class="title">
+                    <h2>NEWS</h2>
+                    <h3>最新消息</h3>
+                </header>
+            </section>
+            <section id="services">
+                <!-- 聯絡區塊 -->
+                <section id="services">
+                    <header class="title">
+                        <h2>SERVICES</h2>
+                        <h3>服務項目</h3>
+                    </header>
+                </section>
+                <section id="video">
+                    <!-- 聯絡區塊 -->
+                    <section id="video">
+                        <header class="title">
+                            <h2>VIDEO</h2>
+                            <h3>相關影片</h3>
+                        </header>
+                    </section>
+                    <section id="about">
+                        <!-- 聯絡區塊 -->
+                        <section id="about">
+                            <header class="title">
+                                <h2>ABOUT</h2>
+                                <h3>關於我們</h3>
+                            </header>
+                        </section>
+    </main>
+
+    <footer>
+        <!-- FOOTER -->
+        <!-- span同一行裡此區塊想做不同的變化 -->
+        <h2>花訪 <span> Flower</span></h2>
+        <nav>
+            <ul class="sitemap">
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="#">NEWS</a>
+                    <!-- ul>li*3>a[href=#] -->
+                    <ul>
+                        <li><a href="#">優惠活動</a></li>
+                        <li><a href="#">媒體報導</a></li>
+                        <li><a href="#">商店公告</a></li>
+                    </ul>
+
+                </li>
+
+                <li><a href="#">SERVICES</a>
+                    <ul>
+                        <li><a href="#">服務1</a></li>
+                        <li><a href="#">服務1</a></li>
+                        <li><a href="#">服務1</a></li>
+                        <li><a href="#">服務1</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+
+        </nav>
+        <small>Copyright &copy;Flower </small>
+
+    </footer>
 </body>
+
 </html>
