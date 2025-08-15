@@ -1,0 +1,561 @@
+@charset "UTF-8";
+/* font一定要在第二行 */
+/* 中文字-goole font-import複製過來 */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=LXGW+WenKai+TC&display=swap');
+
+
+/* 英文字要另外建一個資料夾 將字體下載下來放入資料夾 */
+@font-face{
+    font-family: kaoly ;
+    src:url(../webfont/Kaoly\ Demo-Regular.ttf);
+}
+
+/* @font-face{
+    font-family: ;
+    src:url();
+} */
+
+
+/* CSS  */
+:root {
+
+    /* 灰階 */
+    --deep: #444;
+    --dark: #666;
+    --grey: #999;
+    --light: #f1f1f1;
+
+    /* 背景  */
+    --bg-1: #f2edf0;
+    --bg-2: #e6ece5;
+    --bg-3: #ecf0f4;
+
+    /* 輔助 */
+    --lesser-1: #f3e4e4;
+    --lesser-2: #efdbdb;
+    --lesser-3: #cdaaab;
+    --lesser-4: #8f6d6e;
+    /* 透明 */
+    --alpha-w-20: rgb(255, 255, 255, 0.2);
+    --alpha-w-40: rgb(255, 255, 255, 0.4);
+
+    --alpha-b-20: rgba(0, 0, 0, 0.2);
+
+    /* 尺寸 (不需要單位，為了讓TOPBAR可以維持在最上面)*/
+    --ex: 99999;
+
+    /* 圓角要(單位)px */
+
+
+}
+
+/* CSS Reset */
+* {
+    box-sizing: border-box;
+    /* alt+shift+A */
+    /*不累加內距與邊距  */
+
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    /* font-weight: bold; */
+}
+
+/* 重置字體 */
+body {
+    font-family:
+        /* 可以全都給""，不過需要""只有: 中文字體名稱、兩個英文單字含空格 */
+        /*西文*/
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        /*中文*/
+        "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei",
+        /* "Noto Sans TC", */
+        sans-serif;
+    /* font-size: 100%; */
+    line-height: 1.5;
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 重置圖片 */
+img {
+    display: block;
+    width: 100%;
+}
+
+/* 重置連接 */
+a {
+    display: block;
+    /* 常用來設定尺寸，所以直接把inline(不支援尺寸設定)=>block */
+    color: burlywood;
+    text-decoration: none;
+
+    /* 以下 1:動畫時間，2:delay時間 */
+    transition: .2s;
+    /*設定在hover上及未停留滿動畫時間時，滑鼠離開沒有動畫 */
+}
+
+/* 共用區 */
+/* 區塊標題 */
+.title {
+    margin-top: 110px;
+    margin-bottom: 30px;
+    /* text-align: center; */
+}
+
+.title * {
+    /* 星號 代表所有子元素 */
+    text-align: center;
+    font-weight: 700;
+}
+
+.title h2 {
+    font-family: "LXGW WenKai TC", cursive;
+    font-weight: 700;
+    font-style: 1.2rem;
+    /* margin-top: 10px; */
+    border-bottom: solid 2px var(--deep);
+}
+
+.title h3 {
+    font-family: "LXGW WenKai TC", cursive;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: 10px;
+
+}
+
+.btn-animate {
+
+    /* position: relative; */
+    /* outline: none; */
+    /* text-decoration: none; */
+
+    border-radius: 50px;
+    display: flex !important; /*為了強調  */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* 在畫面上的指標手勢 */
+    margin: 15px auto;
+    /* 有固定尺寸就可以設定auto */
+
+    /* text-transform: uppercase; */
+
+    height: 60px;
+    width: 210px !important;
+
+    cursor: pointer;
+    margin: 20px auto;
+
+
+    /* 重置button預設值 */
+    background-color: #ffffff;
+    border: 1px solid var(--lesser-3);
+    color: var(--lesser-4);
+
+    /* 字距置中 */
+    letter-spacing: 15px;
+    padding-left: 15px; /* 在前面補一個字距的空間，讓視覺置中 */
+
+
+    /* opacity: 1;
+  background-color: #ffffff;
+  border: 1px solid rgba(22, 76, 167, 0.6); */
+
+}
+
+
+.btn-animate:hover {
+    animation: myRotate 1s both;
+}
+
+@keyframes myRotate {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(3deg); }
+  50%  { transform: rotate(-3deg);}
+  75%  { transform: rotate(1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.btn-animate:hover span {
+    animation: myStorm 1s .1s both;
+}
+@keyframes myStorm {
+  0%   { transform: translate3d(0, 0, 0);}
+  25%  { transform: translate3d(4px, 0, 0);}
+  50%  { transform: translate3d(-3px, 0, 0);}
+  75%  { transform: translate3d(2px, 0, 0);}
+  100% { transform: translate3d(0, 0, 0);}
+}
+
+
+
+
+
+
+
+
+/* 頁首區 (小小範圍的尺寸，不用根據網頁大小縮放=>>就用固定像素單位)*/
+
+#topbar {
+    /* #是id主題 */
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    z-index: var(--ex);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+div.logo {
+    /* .是class有點像小標題 */
+    width: 55px;
+}
+
+#topbar ul {
+    /* 後面空1格是代表下一層 */
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* icon選單 */
+.icon a {
+    /* #topbar  */
+    /* 範圍比較小用固定單位px */
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+
+/* 要不要給階層(空1格)是考量，在其他地方會不會不一樣 */
+/* svg會自動等比縮放 (寬度fill，高auto)*/
+.icon-fb {
+    background-image: url(../images/icon-fb.svg);
+    /*  background-size: 100% ; 若檔名不是svg才須寫這行*/
+}
+
+.icon-ig {
+    background-image: url(../images/icon-ig.svg);
+}
+
+.icon-line {
+    background-image: url(../images/icon-line.svg);
+}
+
+.icon-fb:hover {
+    background-image: url(../images/icon-fb-hover.svg);
+}
+
+.icon-ig:hover {
+    background-image: url(../images/icon-ig-hover.svg);
+}
+
+.icon-line:hover {
+    background-image: url(../images/icon-line-hover.svg);
+}
+
+
+
+/* 主選單~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#topbar .menu {
+    font-family: "Dancing Script", cursive;
+    /*  */
+    padding: 0 10px;
+    border-radius: 999px;
+    /* 玻璃擬態 */
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .3) rgba(255, 255, 255, .7));
+    /* background-color: var(--alpha-w-20); */
+    border: 2px solid var(--alpha-w-40);
+    backdrop-filter: blur(10px);
+    /* 模糊 */
+    /* 容器陰影只針對元素本身 預設外陰影 ，內陰影inser*/
+    box-shadow: 2px 4px 10px var(--alpha-b-20),
+        inset -1px -1px 1px var(--alpha-w-40);
+
+    /* 濾鏡陰影是包含所有子元素 */
+    /* filter:drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.2)) ; */
+    /* X軸、Y軸、模糊、顏色 */
+
+
+
+    /* 文字陰影針對文字，包含所有子元素 */
+    /* text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); */
+
+
+    /* border-bottom: 2px solid transparent; */
+}
+
+#topbar .menu a {
+    /* 1.導航列項目間距離 
+2.先預留hover上去，線的位置，否則外框會變動*/
+
+    /*  font-weight: 700; */
+    margin: 10px;
+    border-bottom: 2px solid transparent;
+}
+
+#topbar .menu a:hover {
+    /* 滑上去變色 */
+    color: blueviolet;
+    border-bottom: #000 3px solid;
+}
+
+/* 聯繫我們區 */
+
+#contact {
+    /* 相對定位，照原本位置排 */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    /*主軸垂直*/
+    justify-content: center;
+    align-items: center;
+
+    /* 跟視窗一樣高? */
+    height: 100vh;
+
+    /* 背景影像排序較高，排序高於背景顏色 */
+    /* background-image: url(../images/banner_1.jpg); */
+    background-color: var(--bg-1);
+
+
+}
+
+#contact .content {
+    display: flex;
+    width: 80%;
+}
+
+#contact .content>* {
+    flex: 1;
+    /* 將聯絡區塊與表單 各分一半(父元素=flex) */
+    margin: 0 15px;
+
+}
+
+
+
+#contact .content h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#contact address {
+    font-size: .8rem;
+    font-style: normal;
+    margin: 10px 0;
+}
+
+#contact iframe{
+    width: 100%;
+    height: 300px;
+}
+
+/* 裝飾花朵 */
+#contact figure {
+
+    position: absolute;
+    width: 250px;
+
+}
+
+#contact .flower_1 {
+
+
+    left: 0;
+    bottom: -30px;
+
+
+}
+
+#contact .flower_2 {
+
+
+    right: 0;
+    top: 110px;
+    /* deg度 */
+    transform: rotate(-30deg);
+
+}
+
+#contactform>* {
+    display: block;
+    width: 100%;
+
+}
+
+#contactform label {
+    margin: 15px 0 5px;
+}
+
+/* 外框給顏色 */
+#contactform input,
+#contactform textarea {
+    border: 1px solid var(--lesser-3);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--lesser-4);
+
+}
+
+#contactform input:focus,
+#contactform textarea:focus {
+
+    outline: 2px solid var(--lesser-4);
+}
+
+#contactform input::placeholder,
+#contactform textarea::placeholder {
+
+    color: var(--lesser-4);
+}
+
+
+
+/*頁尾區*/
+
+footer {
+    display: flex;
+    /* 水平排 */
+    justify-content: space-between;
+    /* 水平排均分 */
+    padding: 20px 30px;
+    background-color: var(--lesser-4);
+    /* 改頁尾區字顏色 */
+    color: var(--light);
+}
+
+footer h2 {
+    font-size: 1.5rem;
+}
+
+footer h2 span {
+    font-size: 1rem;
+    /* rem 抓瀏覽器的預設大小?? */
+}
+
+footer a {
+    /* 改頁尾區a標籤裡面 字顏色 */
+    color: var(--light);
+}
+
+footer .sitemap {
+    display: flex;
+    /* 水平排 */
+}
+
+footer .sitemap>li {
+    /* > 只會指定第一層 */
+    margin: 0 10px;
+}
+
+footer small {
+    /* 只有它一個要下去=>使用self */
+    align-self: flex-end;
+}

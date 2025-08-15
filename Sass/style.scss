@@ -18,7 +18,7 @@
 /* 區塊標題 */
 .title {
 
-    margin: $space-ex 0 $space-xl;
+    margin: $s-ex 0 $s-xl;
 
     * {
         text-align: center;
@@ -29,12 +29,13 @@
         font-family: $family-en;
         font-size: $f-s-xxxl;
         @include border-b;
-        font-size: $f-w-b;
+        font-weight: $f-w-b;
     }
 
     h3 {
         font-family: $family-tc;
         font-size: $f-s-lg;
+        font-weight: $f-w-r;
 
     }
 
@@ -53,17 +54,18 @@
 
     }
 }
+
 // 迴圈不須被調用，可直接使用
-@each $social in fb,ig,line {
-    .icon-#{$social}{
+@each $social in fb, ig, line {
+    .icon-#{$social} {
 
         background-image: url(../images/icon-#{$social}.svg);
-     
-        &:hover{
 
-        background-image: url(../images/icon-#{$social}-hover.svg);
+        &:hover {
+
+            background-image: url(../images/icon-#{$social}-hover.svg);
         }
-    
+
     }
 
 }
@@ -91,21 +93,22 @@
         // justify-content: flex-end;
         @extend %flex-end;
     }
-    .menu{
+
+    .menu {
         padding: $s-x-xs;
         border-radius: $r-ex;
         @include glassmorphism;
 
 
-        a{
-            font-family:$family-en;
+        a {
+            font-family: $family-en;
             font-weight: $f-w-b;
-            margin: $space-xs;
-            @include border-b ($width:2px, $color:transparent);
+            margin: $s-xs;
+            @include border-b ($width: 2px, $color: transparent);
 
             &:hover {
                 color: $Black;
-                @include border-b ($width:2px, $color:$Black);
+                @include border-b ($width: 2px, $color: $Black);
             }
 
         }
@@ -115,16 +118,174 @@
 
 }
 
-#contactform {
-    .btn-animate {
-        @extend %btn-animate;
+// 聯絡我們
+#contact {
+    /* 相對定位，照原本位置排 */
+    position: relative;
+    overflow: hidden;
+    @extend %flex-center;
+    flex-direction: column;
+    /* 跟視窗一樣高? */
+    height: 100vh;
+
+
+
+    // display: flex;
+
+    // /*主軸垂直*/
+    // justify-content: center;
+    // align-items: center;
+
+
+    // /* 背景影像排序較高，排序高於背景顏色 */
+    // /* background-image: url(../images/banner_1.jpg); */
+    // background-color: var(--bg-1);
+
+
+    .content {
+        display: flex;
+        width: $w-80;
+
+        // RWD -base
+        @media ($mediaSm) {
+            flex-direction: column;
+        }
+
+        >* {
+            flex: 1;
+            margin: $s-x-sm;
+        }
+
+        h1 {
+            font-size: $f-s-xl;
+            font-weight: $f-w-m;
+        }
+
+        address {
+            font-size: $f-s-sm;
+            font-style: normal;
+            margin: $s-y-md;
+        }
+
+        iframe {
+            width: $w-100;
+            height: 300px;
+
+        }
+
+        // 聯絡表單
+        #contactform {
+
+            >* {
+                display: block;
+                width: $w-100;
+
+            }
+
+            label {
+                margin: $s-y-sm $s-xxs;
+            }
+
+            .btn-animate {
+                @extend %btn-animate;
+            }
+
+            input {
+                @extend %input-style;
+            }
+
+            textarea {
+
+                @extend %input-style;
+            }
+        }
+
+
+
+
+
+
+
     }
+
+    figure {
+        position: absolute;
+        width: 250px;
+
+        @media ($mediaMd) {
+            width: 200px;
+
+        }
+
+        @media ($mediaSm) {
+            //手機板
+
+            display: none;
+
+        }
+    }
+
+    .flower_1 {
+
+        left: 0;
+        bottom: -30px;
+    }
+
+    .flower_2 {
+
+
+        right: 0; //-30px
+        top: 110px;
+        /* deg度 */
+        transform: rotate(-30deg);
+
+    }
+
+}
+
+// 頁尾區
+#footer {
+
+    @extend %flex-between;
+    padding: $s-md $s-xl ;
+    background-color: $lesser-4;
+    /* 改頁尾區字顏色 */
+    color: $light;
+
+    h2 {
+        font-size: $f-s-xl;
+
+        span {
+            font-size: $f-s-md
+                /* rem 抓瀏覽器的預設大小?? */
+        }
+    }
+
+    a {
+        /* 改頁尾區a標籤裡面 字顏色 */
+        color: $light;
+    }
+
+    .sitemap {
+        display: flex;
+        /* 水平排 */
+
+        /* > 只會指定第一層 */
+        >li {
+            margin: 0 10px;
+        }
+
+    }
+
+    small {
+        /* 只有它一個要下去=>使用self */
+        align-self: flex-end;
+    }
+
+
 }
 
 
 
-// 按鈕區
-// .btn-animate{
 
-//     border-radius: $radius-ex;
-// }
+

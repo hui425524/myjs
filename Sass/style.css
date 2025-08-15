@@ -183,6 +183,11 @@ a {
 #contact .content #contactform input:focus, #contact .content #contactform textarea:focus {
   outline: 2px solid #8f6d6e;
 }
+#contact .content #contactform input::-moz-placeholder, #contact .content #contactform textarea::-moz-placeholder {
+  color: #8f6d6e;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
 #contact .content #contactform input::placeholder, #contact .content #contactform textarea::placeholder {
   color: #8f6d6e;
   font-size: 0.75rem;
@@ -297,7 +302,8 @@ a {
   background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));
   /* background-color: var(--alpha-w-20); */
   border-bottom: solid 2px rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   /* 模糊 */
   /* 容器陰影只針對元素本身 預設外陰影 ，內陰影inser*/
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2), inset -1px -1px 1px rgba(255, 255, 255, 0.4);
@@ -406,4 +412,4 @@ a {
 #footer small {
   /* 只有它一個要下去=>使用self */
   align-self: flex-end;
-}
+}/*# sourceMappingURL=style.css.map */

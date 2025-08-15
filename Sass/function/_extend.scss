@@ -4,6 +4,7 @@
 
 // extend也在function資料夾裡 所以不可直接調用一整個檔案
 // 只需調mixin檔案
+// 繼承都會置頂
 
 %flex-center{
 
@@ -16,6 +17,13 @@
     display: flex;
     justify-content: space-between;
 }
+%flex-end{
+
+    display: flex;
+    justify-content: flex-end;
+
+
+}
 
 %btn-animate{
     border-radius: $r-ex;
@@ -24,7 +32,7 @@
     width: 210px;
 
     cursor:pointer;
-    margin:$space-md auto;
+    margin:$s-md auto;
     @include bordered;
     color:$lesser-4;
     letter-spacing: $s-sm;
@@ -39,4 +47,22 @@
         }
 
     }
+}
+
+%input-style{
+    @include bordered;
+    padding: $s-xs;
+    border-radius: $s-xxs;
+    color: $lesser-4;
+    font-weight:$f-w-m;
+    &:focus{
+        outline: 2px solid $lesser-4;
+    }
+    &::placeholder {
+
+    color: $lesser-4;
+    font-size: $f-s-xs;
+    font-weight: $f-w-r;
+
+}
 }
