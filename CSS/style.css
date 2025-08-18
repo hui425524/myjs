@@ -139,7 +139,7 @@ a {
 /* 背景  */
 /* 輔助 */
 /* z-ex99999  */
-#contact, #contact .content #contactform .btn-animate {
+#index section, #contact, #contact .content #contactform .btn-animate {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -234,6 +234,7 @@ a {
 /* 共用區 */
 /* 區塊標題 */
 .title {
+  position: relative;
   margin: 110px 0 30px;
 }
 .title * {
@@ -245,10 +246,33 @@ a {
   border-bottom: solid 3px #393a3a;
   font-weight: 700;
 }
+.title h2::before, .title h2::after {
+  content: "";
+  position: absolute;
+  background-color: #8f6d6e;
+  border-radius: 99px;
+}
+.title h2::before {
+  top: -5px;
+  left: -10px;
+  width: 15px;
+  height: 15px;
+}
+.title h2::after {
+  bottom: 35px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+}
 .title h3 {
   font-family: "LXGW+WenKai TC", cursive;
   font-size: 1.2rem;
   font-weight: 400;
+}
+
+#index section {
+  flex-direction: column;
+  height: 100vh;
 }
 
 .logo {

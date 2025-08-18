@@ -18,6 +18,7 @@
 /* 區塊標題 */
 .title {
 
+    position: relative;
     margin: $s110 0 $s30;
 
     * {
@@ -30,6 +31,34 @@
         font-size: $f-s-xxxl;
         @include border-b;
         font-weight: $f-w-b;
+
+        &::before,
+        &::after {
+
+            content: "";
+            position: absolute;
+            background-color: $lesser-4;
+            border-radius: $r-ex;
+        }
+
+
+        &::before {
+
+            top: -5px;
+            left: -10px;
+            width: 15px;
+            height: 15px;
+
+        }
+
+        &::after {
+
+            bottom: 35px;
+            right: -5px;
+            width: 10px;
+            height: 10px;     
+
+        }
     }
 
     h3 {
@@ -39,6 +68,21 @@
 
     }
 
+
+
+
+
+
+}
+
+// 主要內容區
+#index {
+
+    section {
+        @extend %flex-center;
+        flex-direction: column;
+        height: 100vh;
+    }
 }
 
 .logo {
@@ -307,12 +351,10 @@ footer {
         /* 只有它一個要下去=>使用self */
         align-self: flex-end;
 
-         @media ($mediaSm) {
-            
-                 align-self: flex-start;
-                 margin-top: $s30;
-            }
+        @media ($mediaSm) {
+
+            align-self: flex-start;
+            margin-top: $s30;
         }
+    }
 }
-
-
