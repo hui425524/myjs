@@ -25,6 +25,11 @@
 
 }
 
+%img-cover{
+    object-fit: cover;
+    height: 100%;
+
+}
 %btn-animate{
     border-radius: $r-ex;
     @extend %flex-center;
@@ -65,4 +70,12 @@
     font-weight: $f-w-r;
 
 }
+}
+
+// 多行省略
+%multiple-lines{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }

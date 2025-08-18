@@ -155,6 +155,11 @@ a {
   justify-content: flex-end;
 }
 
+#news figure img {
+  object-fit: cover;
+  height: 100%;
+}
+
 #contact .content #contactform .btn-animate {
   border-radius: 99px;
   height: 60px;
@@ -187,6 +192,13 @@ a {
   color: #8f6d6e;
   font-size: 0.75rem;
   font-weight: 400;
+}
+
+#news .txtbox P {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 @keyframes myRotate {
@@ -246,33 +258,28 @@ a {
   border-bottom: solid 3px #393a3a;
   font-weight: 700;
 }
-.title h2::before, .title h2::after {
-  content: "";
-  position: absolute;
-  background-color: #8f6d6e;
-  border-radius: 99px;
-}
-.title h2::before {
-  top: -5px;
-  left: -10px;
-  width: 15px;
-  height: 15px;
-}
-.title h2::after {
-  bottom: 35px;
-  right: -5px;
-  width: 10px;
-  height: 10px;
-}
 .title h3 {
   font-family: "LXGW+WenKai TC", cursive;
   font-size: 1.2rem;
   font-weight: 400;
 }
-
-#index section {
-  flex-direction: column;
-  height: 100vh;
+.title::before, .title::after {
+  content: "";
+  position: absolute;
+  background-color: #8f6d6e;
+  border-radius: 99px;
+}
+.title::before {
+  top: -5px;
+  left: -10px;
+  width: 15px;
+  height: 15px;
+}
+.title::after {
+  bottom: 35px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
 }
 
 .logo {
@@ -306,6 +313,17 @@ a {
   background-image: url(../images/icon-line-hover.svg);
 }
 
+.more {
+  width: 100px;
+  line-height: 50px;
+  /* 單行文字垂直置中 ，可直接設定取代高度*/
+  text-align: center;
+  background-color: #8f6d6e;
+  margin-top: 25px;
+  color: #f1f1f1;
+  border-radius: 12px;
+}
+
 #topbar {
   position: fixed;
   top: 0;
@@ -335,6 +353,61 @@ a {
 #topbar .menu a:hover {
   color: #0a0a0a;
   border-bottom: solid 2px #0a0a0a;
+}
+
+#index section {
+  flex-direction: column;
+  height: 100vh;
+}
+
+.list-box {
+  display: flex;
+  gap: 30px;
+  width: 80%;
+  max-width: 1100px;
+}
+
+.item {
+  flex: 1;
+  border-bottom: solid 1px #cdaaab;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#news {
+  background-color: #f2edf0;
+}
+#news figure {
+  height: 30vh;
+}
+#news .txtbox {
+  padding: 10px;
+}
+#news .txtbox h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+#news .txtbox P {
+  -webkit-line-clamp: 4;
+}
+
+#services .item {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+}
+#services .item:nth-child(1) {
+  background-image: url(../images/pt_svc1.jpg);
+}
+#services .item:nth-child(2) {
+  background-image: url(../images/pt_svc2.jpg);
+}
+#services .item:nth-child(3) {
+  background-image: url(../images/pt_svc3.jpg);
+}
+#services .item:nth-child(4) {
+  background-image: url(../images/pt_svc4.jpg);
 }
 
 #contact {
