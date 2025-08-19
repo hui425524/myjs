@@ -25,9 +25,11 @@
 
 }
 
-%img-cover{
+// 原先是%img-cover
+%object-cover{
     object-fit: cover;
     height: 100%;
+    width: 100%;
 
 }
 %btn-animate{
@@ -78,4 +80,11 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+}
+
+// 單行省略
+%single-line{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
