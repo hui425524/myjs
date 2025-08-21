@@ -5,7 +5,7 @@ $s-sm:15px;
 $s-md:20px;
 $s-lg:25px;
 $s30:30px;//xl
-$s110:110px;
+$s110:110px;//ex
 
 $s-x-xs: 0 10px;
 $s-x-sm: 0 15px;
@@ -13,11 +13,16 @@ $s-x-md: 0 20px;
 $s-x-lg: 0 25px;
 $s-x-xl: 0 30px;
 
+
+
 $s-y-xs: 10px 0;
 $s-y-sm: 15px 0;
 $s-y-md: 20px 0;
 $s-y-lg: 25px 0;
 $s-y-xl: 30px 0;
+
+
+$s-label:10px 0 5px;//$space-label
 
 // radius
 $r-sm:6px;

@@ -18,10 +18,11 @@
 /* 區塊標題 */
 .title {
 
-    position: relative;
+    // position: relative;
     margin: $s110 0 $s30;
 
     * {
+        //.title裡面的所有子孫
         text-align: center;
     }
 
@@ -32,43 +33,47 @@
         @include border-b;
         font-weight: $f-w-b;
 
+
+        &::before,
+        &::after {
+
+            content: "";
+            position: absolute;
+            background-color: $lesser-4;
+            border-radius: $r-ex;
+        }
+
+        &::before {
+
+            top: -3px;
+            left: -10px;
+            width: 15px;
+            height: 15px;
+
+        }
+
+        &::after {
+
+            bottom: 10px;
+            right: -7px;
+            width: 10px;
+            height: 10px;
+
+        }
+
     }
 
     h3 {
         font-family: $family-tc;
         font-size: $f-s-lg;
-        font-weight: $f-w-r;
+        // font-weight: $f-w-r;
 
     }
 
 
-    &::before,
-    &::after {
-
-        content: "";
-        position: absolute;
-        background-color: $lesser-4;
-        border-radius: $r-ex;
-    }
 
 
-    &::before {
 
-        top: -5px;
-        left: -10px;
-        width: 15px;
-        height: 15px;
-
-    }
-
-    &::after {
-
-        bottom: 35px;
-        right: -5px;
-        width: 10px;
-        height: 10px;
-
-    }
 
 }
 
@@ -119,7 +124,7 @@
 
 
 
-// 頁首
+// --------------------------------頁首
 #topbar {
 
     position: fixed;
@@ -163,7 +168,7 @@
 
 }
 
-// 主要內容區
+// 主要內容區-----------------------------------------------
 #index {
 
     section {
@@ -174,7 +179,7 @@
         @media ($mediaMd) {
             &#video {
                 height: auto;
-                padding-bottom: $s30;
+                padding-bottom: $s110;
             }
 
         }
@@ -206,7 +211,7 @@
 
 
 
-// 最新消息
+// 最新消息-----------------------------------------------
 #news {
     background-color: $bg-1;
 
@@ -224,7 +229,7 @@
         // 第二個後讓所有的子元素消失
         @media($mediaSm) {
 
-            &:nth-child(n+2) {
+            &:nth-child(2) {
                 display: none;
             }
         }
@@ -232,54 +237,60 @@
 
 
 
-    }
 
-    a {
-        &:hover {
 
-            .txtbox {
-                background-color: $light;
+        a {
+            &:hover {
+
+                .txtbox {
+                    background-color: $light;
+                }
+
+                figure {
+                    filter: brightness(70%);
+                }
+
             }
+
 
             figure {
-                filter: brightness(70%);
+                height: 30vh;
+                transition: $speed-fast; ///RWD-base
+
+                img {
+                    @extend %object-cover;
+                }
+            }
+
+            .txtbox {
+
+                padding: $s-md;
+                transition: $speed-fast; //需設定在元素本人上
+
+                h2 {
+                    // font-size: $f-s-lg;
+                    // font-weight: $f-w-m ;
+                    // margin-bottom: $s-xxs;
+                    @extend %list-title; //////???????????
+                }
+
+                P {
+                    text-align: justify;
+                    /* 英文不適用 */
+                    @extend %multiple-lines;
+                    -webkit-line-clamp: 4;
+                }
             }
 
         }
-    }
 
-    figure {
-        height: 30vh;
-        transition: $speed-fast; ///RWD-base
-
-        img {
-            @extend %object-cover;
-        }
-    }
-
-    .txtbox {
-
-        padding: $s-md;
-        transition: $speed-fast; //需設定在元素本人上
-
-        h2 {
-            // font-size: $f-s-lg;
-            // font-weight: $f-w-m ;
-            // margin-bottom: $s-xxs;
-            @extend %list-title;//////???????????
-        }
-
-        P {
-            text-align: justify;/* 英文不適用 */
-            @extend %multiple-lines;
-            -webkit-line-clamp: 4;
-        }
     }
 }
 
 // 服務項目
 #services {
     background-color: $bg-2;
+
     .list-box {
         @media ($mediaSm) {
 
@@ -287,85 +298,85 @@
             height: 60vh; //主軸垂直，高度轉換為hug，影響到子元素展不開
 
         }
-    }
-
-    .item {
-
-        display: flex;
-        align-items: flex-end;
-        height: 50vh;
 
 
-        background-size: cover;//自動縮放，並剪裁掉右下圖片範圍
-        background-position: center; // 背景置中需另外寫
+        .item {
 
-        @media ($mediaMd) {
-
-            // 包含第三個以後作用
-            &:nth-child(n+3) {
-                display: none;
-            }
-
-        }
-
-        @media ($mediaSm) {
-
-            // 包含第三個以後作用
-            &:nth-child(n+2) {
-                display: none;
-            }
-
-        }
+            display: flex;
+            align-items: flex-end;
+            height: 50vh;
 
 
-        &:nth-child(1) {
-            background-image: url(../images/pt_svc1.jpg);
-        }
+            background-size: cover; //自動縮放，並剪裁掉右下圖片範圍
+            background-position: center; // 背景置中需另外寫
 
-        &:nth-child(2) {
-            background-image: url(../images/pt_svc2.jpg);
-        }
+            @media ($mediaMd) {
 
-        &:nth-child(3) {
-            background-image: url(../images/pt_svc3.jpg);
-        }
-
-        &:nth-child(4) {
-            background-image: url(../images/pt_svc4.jpg);
-
-        }
-
-        a {
-            width: 100%; //因為flex會讓a變成hug
-            padding: $s-md;
-            color: $light;
-            background-color: $alpha-b-60;
-
-            h2 {
-                @extend %list-title;
-            }
-
-            p {
-                // overflow: hidden;
-                // text-overflow: ellipsis;
-                // white-space: nowrap;
-                @extend %single-line;
+                // 包含第三個以後作用
+                &:nth-child(n+3) {
+                    display: none;
+                }
 
             }
 
-            &:hover {
-                color: $Black;
-                background-color: $alpha-w-70;
+            @media ($mediaSm) {
+
+                // 包含第三個以後作用
+                &:nth-child(n+2) {
+                    display: none;
+                }
+
+            }
+
+
+            &:nth-child(1) {
+                background-image: url(../images/pt_svc1.jpg);
+            }
+
+            &:nth-child(2) {
+                background-image: url(../images/pt_svc2.jpg);
+            }
+
+            &:nth-child(3) {
+                background-image: url(../images/pt_svc3.jpg);
+            }
+
+            &:nth-child(4) {
+                background-image: url(../images/pt_svc4.jpg);
+
+            }
+
+            a {
+                width: 100%; //因為flex會讓a變成hug
+                padding: $s-md;
+                color: $light;
+                background-color: $alpha-b-60;
+
+                h2 {
+                    @extend %list-title;
+                }
+
+                p {
+                    // overflow: hidden;
+                    // text-overflow: ellipsis;
+                    // white-space: nowrap;
+                    @extend %single-line;
+
+                }
+
+                &:hover {
+                    color: $Black;
+                    background-color: $alpha-w-70;
+                }
+
             }
 
         }
-
-
     }
 }
 
 
-// 相關影片
+// 相關影片----------------------
 #video {
     background-image: url(../images/bg_contact.jpg);
 
@@ -410,12 +421,84 @@
 #about {
 
     position: relative;
-    background-color: $bg-1;
+    background-color: $lesser-1;
+
+    div {
+        position: absolute;
+        z-index: 1;
+        background-color: $lesser-1;
+        height: 100%;
+        width: 60%;
+
+        @extend %flex-center;
+        flex-direction: column;
+
+
+        p {
+            overflow: auto; //
+            width: 90%;
+            margin-bottom: $s-xxs; //$s-xx1
+            padding-right: $s-xs;
+
+
+            &::-webkit-scrollbar {
+                //主要滾動條(包含按鈕範圍)
+
+                width: 12px;
+                height: 12px;
+            }
+
+            ::-webkit-scrollbar-button {
+                //上下左右按鈕
+                // display: block; //mac 預設為none
+                // background-color: $lesser-3;
+                width: 12px; //控制水平
+                height: 12px; //垂直
+                &:vertical:single-button:start{
+                    
+                    background-image: url(../images/arrow-up.svg);
+
+                }
+                 &:vertical:single-button:end{
+                    
+                    background-image: url(../images/arrow-down.svg);
+
+                }
+                &:vertical:single-button:start{
+                    
+                    background-image: url(../images/arrow-left.svg);
+
+                }
+                 &:vertical:single-button:end{
+                    
+                    background-image: url(../images/arrow-right.svg);
+
+                }
+                // 圖片還沒用進去
+            }
+
+            &::-webkit-scrollbar-thumb {
+                //滑動手柄
+
+                background-color: $lesser-4;
+                border-radius: $r-ex;
+            }
+
+            &::-webkit-scrollbar-track {
+                //滑動軌道
+                background-color: $lesser-2;
+                border-radius: $r-ex;
+            }
+
+
+        }
+    }
 
     video {
         position: absolute;
         @extend %object-cover;
-        filter: brightness(150%);
+        mix-blend-mode: overlay;
+        filter: brightness(70%) contract(120%);
     }
 }
 
@@ -430,6 +513,9 @@
     height: 100vh;
     background-color: $bg-1;
 
+    @media ($mediaMd) {
+        height: auto;
+    }
 
     // display: flex;
 
@@ -497,7 +583,11 @@
 
             textarea {
 
+                border-bottom-right-radius: 0;
                 @extend %input-style;
+                &::-webkit-resizer{
+                    background-image: url(../images/a);
+                }
             }
         }
 
@@ -553,6 +643,12 @@ footer {
     /* 改頁尾區字顏色 */
     color: $light;
 
+
+    @media ($mediaMd) {
+        /*max-width:970  */
+        flex-direction: column;
+    }
+
     a {
         /* 改頁尾區a標籤裡面 字顏色 */
         color: $light;
@@ -568,10 +664,7 @@ footer {
         }
     }
 
-    @media ($mediaMd) {
-        /*max-width:970  */
-        flex-direction: column;
-    }
+
 
 
 
