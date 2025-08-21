@@ -432,6 +432,10 @@
 
         @extend %flex-center;
         flex-direction: column;
+        @media ($mediaMd) {
+            width: 90%;
+            
+        }
 
 
         p {
@@ -586,7 +590,7 @@
                 border-bottom-right-radius: 0;
                 @extend %input-style;
                 &::-webkit-resizer{
-                    background-image: url(../images/a);
+                    background-image: url(../images/arrow-45.svg);
                 }
             }
         }
