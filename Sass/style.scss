@@ -137,35 +137,78 @@
     @extend %flex-between;
     padding: $s-xs $s30;
 
+    .navbar{
 
-    ul {
-        // display: flex;
-        // justify-content: flex-end;
-        @extend %flex-end;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+
     }
 
-    .menu {
-        padding: $s-x-xs;
-        border-radius: $r-ex;
-        @include glassmorphism;
+    .hamburger {
+        background-color: transparent;
+        border: none;
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333 margin $s-xxs auto
+        }
+    }
 
 
-        a {
-            font-family: $family-en;
-            font-weight: $f-w-b;
-            margin: $s-xs;
-            @include border-b ($width: 2px, $color: transparent);
 
-            &:hover {
-                color: $Black;
-                @include border-b ($width: 2px, $color: $Black);
-            }
+    .navigation {
+        @media ($media970) {
+            @include glassmorphism;
+            border-radius: $r-md;
+            display: flex;
+            flex-direction: column;
+
 
         }
 
 
-    }
+        ul {
+            // display: flex;
+            // justify-content: flex-end;
+            @extend %flex-end;
+        }
 
+        .menu {
+            padding: $s-x-xs;
+            border-radius: $r-ex;
+
+            @media ($media971) {
+                @include glassmorphism;
+            }
+
+
+
+            @media ($mediaMd) {
+                flex-direction: column;
+                order: -1; //讓選單跑到最前面
+            }
+
+
+            a {
+                font-family: $family-en;
+                font-weight: $f-w-b;
+                margin: $s-xs;
+                @include border-b ($width: 2px, $color: transparent);
+
+                &:hover {
+                    color: $Black;
+                    @include border-b ($width: 2px, $color: $Black);
+                }
+
+            }
+
+
+        }
+
+    }
 }
 
 // 主要內容區-----------------------------------------------
@@ -432,9 +475,10 @@
 
         @extend %flex-center;
         flex-direction: column;
+
         @media ($mediaMd) {
             width: 90%;
-            
+
         }
 
 
@@ -458,26 +502,31 @@
                 // background-color: $lesser-3;
                 width: 12px; //控制水平
                 height: 12px; //垂直
-                &:vertical:single-button:start{
-                    
+
+                &:vertical:single-button:start {
+
                     background-image: url(../images/arrow-up.svg);
 
                 }
-                 &:vertical:single-button:end{
-                    
+
+                &:vertical:single-button:end {
+
                     background-image: url(../images/arrow-down.svg);
 
                 }
-                &:vertical:single-button:start{
-                    
+
+                &:vertical:single-button:start {
+
                     background-image: url(../images/arrow-left.svg);
 
                 }
-                 &:vertical:single-button:end{
-                    
+
+                &:vertical:single-button:end {
+
                     background-image: url(../images/arrow-right.svg);
 
                 }
+
                 // 圖片還沒用進去
             }
 
@@ -589,7 +638,8 @@
 
                 border-bottom-right-radius: 0;
                 @extend %input-style;
-                &::-webkit-resizer{
+
+                &::-webkit-resizer {
                     background-image: url(../images/arrow-45.svg);
                 }
             }

@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>路跑路線 - t2</title>
+<style>
+/* ========== 全部樣式包在 route-scope，與站內其他 CSS 隔離 ========== */
+.route-scope{ --container:1200px; --gutter:24px; --ink:#111; --muted:#6b7280; --accent:#ff6600; --band:#000;
+  --r-sm:10px; --r-md:14px; --r-lg:16px; --shadow-card:0 28px 60px rgba(0,0,0,.18),0 8px 20px rgba(0,0,0,.1);
+  --shadow-map:0 22px 46px rgba(0,0,0,.22),0 8px 16px rgba(0,0,0,.12);
+  color:var(--ink); background:#fff; font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+.route-scope *{ box-sizing:border-box }
+.route-scope img{ display:block; max-width:100%; height:auto }
+.route-scope .container{ width:min(var(--container), 100% - var(--gutter)*2); margin-inline:auto }
+
+/* ===== 頁面標題（黑底 60px） ===== */
+.route-scope .page-title{ margin-top:0; height:60px; background:#000; display:flex; align-items:center; justify-content:center }
+.route-scope .page-title h2{ color:#fff; margin:0; font-weight:800; letter-spacing:.05em; font-size:clamp(20px,2.2vw,28px) }
+
+/* ===== 上半段：左圖 + 右白文 + 右上圓角 + 直排 ===== */
+.route-scope .route-hero{ position:relative; padding:56px 0 48px; }
+.route-scope .corner{ position:absolute; right:0; top:-84px; width:360px; height:180px; background:#000;
+  border-bottom-left-radius:180px; }
+.route-scope .corner::after{ content:""; position:absolute; right:36px; top:112px; width:16px; height:26px;
+  background:#000; border-radius:50% 50% 60% 60%/60% 60% 40% 40%; }
+.route-scope .hero-wrap{ position:relative; display:grid; grid-template-columns:700px 420px; gap:32px; align-items:center; }
+.route-scope .hero-left img{ width:100%; height:360px; object-fit:cover; border-radius:var(--r-lg); box-shadow:var(--shadow-card); }
+.route-scope .hero-right{ max-width:420px }
+.route-scope .hero-right h3{ margin:0 0 12px; font-size:28px; font-weight:800; letter-spacing:.01em }
+.route-scope .hero-right .meta{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px 28px; color:#353c45; line-height:1.9 }
+  /* 直排「推薦路線 1」對齊容器右緣（相對於 .container 定位，不會撞螢幕邊） */
+.route-scope .hero-wrap{ position:relative }
+.route-scope .vlabel{ position:absolute; right:-8px; top:0; bottom:0; display:flex; align-items:center; gap:6px;
+  writing-mode:vertical-rl; text-orientation:mixed; color:#9aa3af; font-size:18px; letter-spacing:.08em }
+.route-scope .vlabel em{ font-style:normal; color:#606a75; font-weight:700 }
+
+/* ===== 中段：全寬黑色資訊帶 + 疊上 map.png ===== */
+.route-scope .route-overview{ padding:40px 0 110px; background:#fff }
+.route-scope .stack{ display:grid; grid-template-columns:1fr; grid-template-rows:240px; place-items:center }
+.route-scope .band{ grid-area:1/1; width:100%; height:240px; background:var(--band) }
+.route-scope .band-inner{ height:100%; color:#fff; display:grid; grid-template-columns:520px auto; align-items:center; gap:28px }
+.route-scope .band-inner h3{ margin:0; font-size:28px; font-weight:800 }
+.route-scope .band-inner .meta{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; color:#e6e7eb; line-height:1.9 }
+.route-scope .map-card{ grid-area:1/1; z-index:2; width:min(940px, calc(100% - 120px)); border-radius:var(--r-md); overflow:hidden; transform:translateY(14px); box-shadow:var(--shadow-map) }
+
+/* ===== 下段：01/02/03 時間線（交錯） ===== */
+.route-scope .timeline{ position:relative; display:flex; flex-direction:column; gap:72px; margin:8px auto 84px }
+.route-scope .timeline::before{ content:""; position:absolute; left:50%; top:0; transform:translateX(-50%); width:2px; height:100%;
+  background:repeating-linear-gradient(#bbb 0 8px, transparent 8px 16px); opacity:.6 }
+.route-scope .stop{ display:grid; grid-template-columns:1fr 90px 520px; gap:24px; align-items:center }
+.route-scope .stop.alt{ grid-template-columns:520px 90px 1fr }
+.route-scope .lead{ margin:0; line-height:1.9; color:#222 }
+.route-scope .km{ justify-self:center; align-self:center; font-size:22px; font-weight:800; border-bottom:5px solid var(--accent); padding:0 4px 2px; transform:translateX(-2px) }
+.route-scope .media{ position:relative }
+.route-scope .media img{ width:100%; border-radius:12px }
+.route-scope .num{ position:absolute; left:-8px; top:-42px; font-size:72px; color:var(--accent); font-weight:800; line-height:1 }
+.route-scope .mini{ position:absolute; left:-18%; bottom:12%; background:#111; color:#fff; border-radius:10px; padding:14px 18px; min-width:300px; box-shadow:0 10px 20px rgba(0,0,0,.15) }
+.route-scope .mini h5{ margin:.2em 0 .4em; font-size:16px; font-weight:700 }
+.route-scope .mini p{ margin:0; font-size:13px; color:#d1d5db; line-height:1.6 }
+
+/* ===== RWD ===== */
+@media (max-width:1024px){
+  .route-scope .hero-wrap{ grid-template-columns:1fr; gap:18px }
+  .route-scope .hero-right .meta{ grid-template-columns:1fr }
+  .route-scope .vlabel{ right:12px }               /* 小螢幕貼畫面右邊 */
+  .route-scope .stack{ grid-template-rows:200px }
+  .route-scope .band-inner{ grid-template-columns:1fr }
+  .route-scope .map-card{ width:min(760px, 92vw); transform:translateY(10px) }
+  .route-scope .timeline::before{ display:none }
+  .route-scope .stop, .route-scope .stop.alt{ grid-template-columns:1fr; gap:14px }
+  .route-scope .km{ justify-self:start; transform:none }
+}
+
+
+/* ========= drop-in patch ========= */
+/* --- 上半段：左圖 + 右白文 + 右上圓角 + 直排 --- */
+
+.route-scope .route-hero{ padding:72px 0 40px; background:#fff; }
+.route-scope .corner{ right:0; top:-92px; width:360px; height:180px; border-bottom-left-radius:180px; }
+.route-scope .corner::after{ right:34px; top:112px; width:16px; height:26px; }
+
+.route-scope .hero-wrap{ position:relative; display:grid; grid-template-columns:700px 420px; gap:32px; align-items:start; }
+.route-scope .hero-left{ position:relative; background:transparent !important; box-shadow:none !important; }
+.route-scope .hero-left img{ width:100%; height:360px; object-fit:cover; border-radius:16px; box-shadow:0 30px 60px rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.10); }
+.route-scope .hero-right{ max-width:420px; }
+.route-scope .hero-right h3{ margin:0 0 12px; font-size:28px; font-weight:800; letter-spacing:.01em; }
+.route-scope .hero-right .meta{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px 28px; color:#353c45; line-height:1.9; }
+.route-scope .vlabel{ position:absolute; right:-12px; top:0; bottom:0; display:flex; align-items:center; gap:6px; writing-mode:vertical-rl; text-orientation:mixed; color:#9aa3af; font-size:18px; letter-spacing:.08em; }
+.route-scope .vlabel em{ font-style:normal; color:#606a75; font-weight:700; }
+.route-scope .hero-left img:not([src]), .route-scope .hero-left img[src=""], .route-scope .hero-left img[onerror]{ background:#f3f4f6; border:1px dashed #e5e7eb; }
+
+.route-scope .route-overview{ background:#fff; padding:44px 0 112px; }
+.route-scope .stack{ display:grid; grid-template-rows:240px; place-items:center; }
+.route-scope .band{ height:240px; background:#000; }
+.route-scope .band-inner{ height:100%; color:#fff; display:grid; grid-template-columns:520px auto; gap:28px; align-items:center; }
+.route-scope .band-inner h3{ margin:0; font-size:28px; font-weight:800; }
+.route-scope .band-inner .meta{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; color:#e6e7eb; line-height:1.9; }
+.route-scope .map-card{ grid-area:1/1; z-index:2; width:min(940px, calc(100% - 120px)); border-radius:14px; overflow:hidden; transform:translateY(12px); box-shadow:0 22px 46px rgba(0,0,0,.22), 0 8px 16px rgba(0,0,0,.12); }
+.route-scope .map-card img{ display:block; width:100%; height:auto; }
+
+.route-scope .timeline{ position:relative; display:flex; flex-direction:column; gap:72px; margin:8px auto 84px; }
+.route-scope .timeline::before{ content:""; position:absolute; left:50%; top:0; transform:translateX(-50%); width:2px; height:100%; background:repeating-linear-gradient(#bbb 0 8px, transparent 8px 16px); opacity:.6; }
+.route-scope .stop{ display:grid; grid-template-columns:minmax(0,1fr) 90px minmax(0,520px); gap:24px; align-items:center; }
+.route-scope .stop.alt{ grid-template-columns:minmax(0,520px) 90px minmax(0,1fr); }
+.route-scope .lead{ margin:0; line-height:1.9; color:#222; }
+.route-scope .km{ justify-self:center; align-self:center; font-size:22px; font-weight:800; border-bottom:5px solid var(--accent); padding:0 4px 2px; transform:translateX(-2px); }
+.route-scope .media{ position:relative; }
+.route-scope .media img{ width:100%; border-radius:12px; display:block; }
+.route-scope .num{ position:absolute; left:12px; top:-36px; font-size:72px; color:var(--accent); font-weight:800; line-height:1; }
+.route-scope .mini{ position:absolute; left:12px; bottom:12px; z-index:2; background:#111; color:#fff; border-radius:10px; padding:14px 18px; min-width:300px; box-shadow:0 10px 20px rgba(0,0,0,.15); }
+.route-scope .stop.alt .mini{ left:auto; right:12px; }
+.route-scope .mini h5{ margin:.2em 0 .4em; font-size:16px; font-weight:700; }
+.route-scope .mini p{ margin:0; font-size:13px; color:#d1d5db; line-height:1.6; }
+
+@media (max-width:1024px){
+  .route-scope .hero-wrap{ grid-template-columns:1fr; gap:18px; }
+  .route-scope .hero-right .meta{ grid-template-columns:1fr; }
+  .route-scope .vlabel{ right:12px; }
+  .route-scope .stack{ grid-template-rows:200px; }
+  .route-scope .band-inner{ grid-template-columns:1fr; }
+  .route-scope .map-card{ width:min(760px, 92vw); transform:translateY(10px); }
+  .route-scope .timeline::before{ display:none; }
+  .route-scope .stop, .route-scope .stop.alt{ grid-template-columns:1fr; gap:14px; }
+  .route-scope .km{ justify-self:start; transform:none; }
+  .route-scope .num{ left:8px; top:-30px; font-size:56px; }
+  .route-scope .mini{ left:8px; right:auto; bottom:8px; min-width:auto; }
+}
+
+
+
+
+/* --- Navbar 置頂且不被黑角蓋住（把 #topbar 換成你實際的選擇器） --- */
+#topbar { position: sticky; top: 0; z-index: 10000; }
+/* 若你的導覽列是固定高度 64px，讓頁面標題往下讓位 */
+.route-scope .page-title { margin-top: 64px; }
+
+/* 右上黑角層級不要壓到導覽列 */
+.route-scope .route-hero { position: relative; z-index: 0; }
+.route-scope .corner { z-index: 1; }
+
+/* --- 地圖縮小 + 固定 16:9 + 覆蓋高度柔和 --- */
+.route-scope .stack { grid-template-rows: 220px; }         /* 黑帶稍矮一點 */
+.route-scope .map-card{
+  width: min(780px, calc(100% - 144px));                   /* ← 原本 940px，縮小 */
+  transform: translateY(8px);                              /* 輕微覆蓋黑帶即可 */
+}
+.route-scope .map-card img{
+  aspect-ratio: 16 / 9;                                    /* 保持比例 */
+  object-fit: cover;
+}
+
+/* 螢幕稍小再降一次地圖寬 */
+@media (max-width: 1200px){
+  .route-scope .map-card{ width: min(720px, 90vw); }
+}
+
+
+/* ========== 精簡補丁：導航 + 版心對齊 + 地圖尺寸 ========== */
+
+/* 1) 導覽列：橫向、置頂、白字 */
+#topbar{
+  position: sticky; top: 0; z-index: 10000;
+  background:#000; color:#fff; height:56px;
+}
+#topbar .container{ width:min(1200px, 100% - 48px); margin:auto;
+  display:flex; align-items:center; justify-content:space-between; height:100%;
+}
+#topbar .logo{ font-weight:800; letter-spacing:.04em; }
+#topbar .navigation ul{ display:flex; gap:28px; list-style:none; margin:0; padding:0; }
+#topbar .navigation a{ color:#fff; text-decoration:none; font-weight:600; }
+#topbar .navigation a:hover{ color:#ff6600; }
+.route-scope .page-title{ margin-top:56px; }  /* 讓出導覽列高度 */
+
+/* 2) 右上黑角與直排標籤對齊「版心」右緣 */
+.route-scope .corner{ top:-64px; width:320px; height:160px; border-bottom-left-radius:160px; }
+.route-scope .corner::after{ right:28px; top:100px; }
+.route-scope .vlabel{ right:calc((100vw - var(--container))/2 - 8px); }
+
+/* 3) 地圖縮小、固定 16:9、覆蓋高度柔和 */
+.route-scope .stack{ grid-template-rows:210px; }
+.route-scope .map-card{ width:min(720px, calc(100% - 128px)); transform:translateY(6px); border-radius:12px;
+  box-shadow:0 18px 40px rgba(0,0,0,.18), 0 6px 14px rgba(0,0,0,.10); }
+.route-scope .map-card img{ aspect-ratio:16/9; object-fit:cover; }
+
+/* 4) Hero 陰影更柔、與右側文字上緣齊 */
+.route-scope .hero-left img{ box-shadow:0 20px 50px rgba(0,0,0,.14), 0 6px 16px rgba(0,0,0,.08); }
+.route-scope .hero-wrap{ align-items:start; }
+.route-scope .hero-right h3{ margin-top:6px; }
+
+/* RWD 調整 */
+@media (max-width:1024px){
+  #topbar .navigation ul{ gap:18px; }
+  .route-scope .vlabel{ right:12px; }
+  .route-scope .map-card{ width:min(760px, 92vw); transform:translateY(10px); }
+}
+
+/* === 短補丁：右上黑角 / 直排貼齊 / Title 間距 / 地圖尺寸 === */
+
+/* 讓 page title 緊貼導覽列，不要多一條空白 */
+.route-scope .page-title{ margin-top:0; }
+
+/* 右上黑角（縮一階、往上貼一點） */
+.route-scope .corner{
+  top:-60px; width:320px; height:160px; border-bottom-left-radius:160px;
+}
+.route-scope .corner::after{ right:26px; top:98px; }
+
+/* 直排「推薦路線 1」固定在畫面右側，避免壓到標題 */
+.route-scope .route-hero{ position:relative; }
+.route-scope .vlabel{ right:16px; pointer-events:none; }  /* 16px 內縮，視覺舒服 */
+
+/* 地圖再小一點，維持 16:9，覆蓋黑帶但不搶畫面 */
+.route-scope .stack{ grid-template-rows:210px; }
+.route-scope .map-card{ width:min(700px, calc(100% - 128px)); transform:translateY(6px); border-radius:12px; }
+.route-scope .map-card img{ aspect-ratio:16/9; object-fit:cover; }
+
+/* 螢幕較小時：讓 vlabel 靠畫面右邊，地圖寬跟著縮 */
+@media (max-width:1024px){
+  .route-scope .vlabel{ right:12px; }
+  .route-scope .map-card{ width:min(760px, 92vw); transform:translateY(10px); }
+}
+/* === final tune：黑角 / 直排 / Hero / 地圖 === */
+
+/* Hero 左圖與文字比例、對齊 */
+.route-scope .hero-wrap{ grid-template-columns:640px 420px; gap:36px; align-items:start; }
+.route-scope .hero-left img{
+  height:330px; border-radius:16px;
+  box-shadow:0 24px 48px rgba(0,0,0,.14),0 8px 18px rgba(0,0,0,.08);
+}
+.route-scope .hero-right h3{ margin:4px 0 14px; letter-spacing:.02em; }
+
+/* 右上黑角更貼設計稿 */
+.route-scope .corner{ top:-72px; width:340px; height:170px; border-bottom-left-radius:170px; }
+.route-scope .corner::after{ right:30px; top:103px; width:14px; height:24px; }
+
+/* 直排「推薦路線 1」貼齊版心右側、略往內縮避免壓到標題 */
+.route-scope .vlabel{
+  right:calc((100vw - var(--container))/2 + 14px);
+  top:8px; bottom:auto; height:calc(100% - 16px);
+  color:#a3acb5;
+}
+
+/* 地圖更小、覆蓋黑帶更淺，維持 16:9 */
+.route-scope .stack{ grid-template-rows:200px; }
+.route-scope .band{ height:200px; }
+.route-scope .map-card{ width:min(680px, calc(100% - 140px)); transform:translateY(4px); border-radius:12px; }
+.route-scope .map-card img{ aspect-ratio:16/9; object-fit:cover; }
+
+@media (max-width:1280px){
+  .route-scope .vlabel{ right:12px; }
+  .route-scope .map-card{ width:min(720px, 92vw); }
+}
+/* 地圖靠右；黑帶上的文字全在左側堆疊 */
+.route-scope .stack{
+  display:grid;
+  align-items:center;
+  justify-items:end;            /* 讓地圖卡片貼右側 */
+}
+.route-scope .map-card{
+  justify-self:end;             /* 再保險一次，確實靠右 */
+  transform:translateY(6px);
+}
+
+/* 黑色資訊帶內：標題 + 資訊都在左側直向排列 */
+.route-scope .band-inner{
+  display:flex;                 /* 改用直向排列更直覺 */
+  flex-direction:column;
+  align-items:flex-start;
+  gap:12px;
+}
+.route-scope .band-inner .meta{
+  display:grid;
+  grid-template-columns:1fr 1fr;/* 兩欄左對齊（可依需要改成 1 欄） */
+  gap:8px 28px;
+  text-align:left;
+}
+
+
+
+</style>
+</head>
+<body>
+     <!-- 導覽列 -->
+    <header id="topbar">
+        <div class="container">
+
+            <div class="logo">酒桶理論</div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="#">活動首頁</a></li>
+                    <li><a href="#">路跑路線</a></li>
+                    <li><a href="#">酒吧導覽</a></li>
+                    <li><a href="#">會員專區</a></li>
+                    <li><a href="#">關於我們</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+    </header>
+
+<div class="route-scope">
+
+  <!-- 頁面標題 -->
+  <section class="page-title"><h2>路跑路線</h2></section>
+
+  <!-- 上半段：左圖 + 右白文 + 右上圓角 + 直排 -->
+  <section class="route-hero">
+    <span class="corner" aria-hidden="true"></span>
+    <div class="container hero-wrap">
+      <figure class="hero-left">
+        <!-- 換成你的首圖 -->
+        <img src="images/1.jpg" alt="善導寺微醺漫步">
+      </figure>
+
+      <aside class="hero-right">
+        <h3>善導寺微醺漫步</h3>
+        <ul class="meta">
+          <li>起點：That Bar</li>
+          <li>終點：角落酒吧</li>
+          <li>路線總長：0.8km</li>
+          <li>酒吧／商店數量：3</li>
+        </ul>
+      </aside>
+
+      <!-- 直排標籤（對齊容器右邊） -->
+      <div class="vlabel"><span>推薦路線</span><em>1</em></div>
+    </div>
+  </section>
+
+  <!-- 中段：黑色資訊帶 + 疊上地圖 -->
+  <section class="route-overview">
+    <div class="stack">
+      <div class="band">
+        <div class="container band-inner">
+          <h3>善導寺微醺漫步</h3>
+          <ul class="meta">
+            <li>起點：That Bar</li>
+            <li>路線總長：0.8km</li>
+            <li>終點：角落酒吧</li>
+            <li>酒吧／商店數量：3</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 換成你的 map.png -->
+      <figure class="map-card"><img src="./images/map.png" alt="路線地圖"></figure>
+    </div>
+  </section>
+
+  <!-- 下段：01 / 02 / 03 時間線（交錯） -->
+  <section class="timeline container">
+    <!-- 01 -->
+    <article class="stop">
+      <p class="lead">在暖黃燈下，甬管柔唱輕撫心弦，貝斯低吟穿越夜色。今宵經典爵士之夜，現場薩克斯與鋼琴共舞</p>
+      <div class="km">1.1km</div>
+      <div class="media">
+        <div class="num">01</div>
+        <div class="mini">
+          <h5>That Bar</h5>
+          <p>地址：台北市大同一路12號4樓</p>
+          <p>營業時間：17:00–02:00</p>
+        </div>
+        <img src="images/bar1.jpg" alt="">
+      </div>
+    </article>
+
+    <!-- 02（交錯） -->
+    <article class="stop alt">
+      <div class="media">
+        <div class="num">02</div>
+        <div class="mini">
+          <h5>Second Bar</h5>
+          <p>地址：—｜營業：—</p>
+        </div>
+        <img src="images/bar1.jpg" alt="">
+      </div>
+      <div class="km">1.1km</div>
+      <p class="lead">在暖黃燈下，甬管柔唱輕撫心弦，貝斯低吟穿越夜色。今宵經典爵士之夜，現場薩克斯與鋼琴共舞，
+        細品調和雞尾酒，讓律動與酒香交織。邀您相約週五晚，於吧檯前舉杯，沉浸不朽樂章，為平凡夜晚增添永恆樂章。</p>
+    </article>
+
+    <!-- 03 -->
+    <article class="stop">
+      <p class="lead">在暖黃燈下，甬管柔唱輕撫心弦，貝斯低吟穿越夜色。今宵經典爵士之夜，現場薩克斯與鋼琴共舞，
+        細品調和雞尾酒，讓律動與酒香交織。邀您相約週五晚，於吧檯前舉杯，沉浸不朽樂章，為平凡夜晚增添永恆樂章。</p>
+      <div class="km">1.1km</div>
+      <div class="media">
+        <div class="num">03</div>
+        <div class="mini">
+          <h5>Third Bar</h5>
+          <p>地址：—｜營業：—</p>
+        </div>
+        <img src="images/bar1.jpg" alt="">
+      </div>
+    </article>
+  </section>
+
+</div>
+<footer></footer>
+</body>
+</html>
