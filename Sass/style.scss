@@ -137,7 +137,7 @@
     @extend %flex-between;
     padding: $s-xs $s30;
 
-    .navbar{
+    .navbar {
 
         display: flex;
         flex-direction: column;
@@ -149,12 +149,33 @@
     .hamburger {
         background-color: transparent;
         border: none;
+        @media ($media971) {
+            display: none;
+        }
+        
+
         .bar {
             display: block;
             width: 25px;
-            height: 3px;
+            height: 1.5px;
             background-color: #333 margin $s-xxs auto
         }
+
+        &.is.active {
+
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(-5px, -5px);
+            }
+        }
+
     }
 
 
@@ -163,16 +184,22 @@
         @media ($media970) {
             @include glassmorphism;
             border-radius: $r-md;
-            display: flex;
             flex-direction: column;
+            display: none;
+            
+
+            &.show {
+
+                display: flex;
+
+
+            }
 
 
         }
 
 
         ul {
-            // display: flex;
-            // justify-content: flex-end;
             @extend %flex-end;
         }
 

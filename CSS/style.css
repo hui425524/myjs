@@ -252,6 +252,23 @@ a {
     transform: translate3d(0, 0, 0);
   }
 }
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes myrotate {}
 @font-face {
   font-family: kaoly;
   src: url(../webfont/Kaoly\ Demo-Regular.ttf);
@@ -353,11 +370,25 @@ a {
   background-color: transparent;
   border: none;
 }
+@media (min-width:971px) {
+  #topbar .hamburger {
+    display: none;
+  }
+}
 #topbar .hamburger .bar {
   display: block;
   width: 25px;
-  height: 3px;
+  height: 1.5px;
   background-color: #333 margin 5px auto;
+}
+#topbar .hamburger.is.active:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#topbar .hamburger.is.active:nth-child(2) {
+  opacity: 0;
+}
+#topbar .hamburger.is.active:nth-child(3) {
+  transform: rotate(-45deg) translate(-5px, -5px);
 }
 @media (max-width:970px) {
   #topbar .navigation {
@@ -370,8 +401,11 @@ a {
     /* 容器陰影只針對元素本身 預設外陰影 ，內陰影inser*/
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2), inset -1px -1px 1px rgba(255, 255, 255, 0.4);
     border-radius: 12px;
-    display: flex;
     flex-direction: column;
+    display: none;
+  }
+  #topbar .navigation.show {
+    display: flex;
   }
 }
 #topbar .navigation .menu {

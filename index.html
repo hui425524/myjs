@@ -65,14 +65,14 @@
         <section id="banner">BANNER</section>
         <section id="news">
             <!-- 聯絡區塊 -->
-            <header class="title">
+            <header class="title smoove">
                 <h2>NEWS</h2>
                 <h3>最新消息</h3>
             </header>
             <!-- 列表區塊 -->
             <div class="list-box">
                 <!-- article.item*3>a>figure+div.txtbox > h2+p -->
-                <article class="item">
+                <article class="item smoove " data move-x="-500px" data-rotate="90deg">
                     <a href="#">
                         <figure><img src="./images/pt_news1.jpg" alt=""></figure>
                         <div class="txtbox">
@@ -81,7 +81,7 @@
                         </div>
                     </a>
                 </article>
-                <article class="item">
+                <article class="item smoove" data move-x="-250px" data-rotate="45deg" data-move-y="150px">
                     <a href="#">
                         <figure><img src="./images/pt_news2.jpg" alt=""></figure>
                         <div class="txtbox">
@@ -90,7 +90,7 @@
                         </div>
                     </a>
                 </article>
-                <article class="item">
+                <article class="item smoove"  data move-x="500px" data-rotate="-90deg">
                     <a href="#">
                         <figure><img src="./images/pt_news3.jpg" alt=""></figure>
                         <div class="txtbox">
@@ -106,14 +106,14 @@
         </section>
         <section id="services">
             <!-- 聯絡區塊 -->
-            <header class="title">
+            <header class="title smoove">
                 <h2>SERVICES</h2>
                 <h3>服務項目</h3>
             </header>
             <!-- 屬性&值用[]，內容用{}，定義同階層() -->
             <!-- ul.list-box*4>li.item>a[href="#"]>h2{SERVICES TITLE}+p -->
             <ul class="list-box">
-                <li class="item">
+                <li class="item smoove">
                     <a href="#">
                         <h2>SERVICES TITLE</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, sunt!</p>
@@ -121,7 +121,7 @@
                 </li>
 
 
-                <li class="item">
+                <li class="item smoove">
                     <a href="#">
                         <h2>SERVICES TITLE</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, ipsum.</p>
@@ -129,25 +129,25 @@
                 </li>
 
 
-                <li class="item">
+                <li class="item smoove">
                     <a href="#">
                         <h2>SERVICES TITLE</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorem!</p>
                     </a>
                 </li>
 
-                <li class="item">
+                <li class="item smoove">
                     <a href="#">
                         <h2>SERVICES TITLE</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorem!</p>
                     </a>
                 </li>
             </ul>
-            <a class="more" href="#">More</a>
+            <a class="more smoove" href="#">More</a>
         </section>
         <section id="video">
             <!-- 聯絡區塊 -->
-            <header class="title">
+            <header class="title smoove">
                 <h2>VIDEO</h2>
                 <h3>相關影片</h3>
             </header>
@@ -158,8 +158,8 @@
         </section>
         <section id="about">
             <!-- 聯絡區塊 -->
-            <div>
-                <header class="title">
+            <div class="smoove" data-rotate-x="90deg" data-move-z="-500px">
+                <header class="title ">
                     <h2>ABOUT</h2>
                     <h3>關於我們</h3>
                 </header>
@@ -266,6 +266,22 @@
 
         </nav>
         <small>Copyright &copy;Flower </small>
+
+        <!-- jquery cdn -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+        <!-- 其他套件 -->
+        <script src="./script/other.js"></script>
+
+        <!--  jquery smoove套件 -->
+        <!-- 要自己 + https: ((因為不想讓人連過去))-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
+
+
+        <!-- 自己寫的 一定要在最下面-->
+        <script src="./script/script.js"></script>
+
 
     </footer>
 </body>
